@@ -45,8 +45,16 @@
   .alt-contact p { font-size: 14px; color: #C9C4BC; margin: 0; }
 
   #status { margin-top: 18px; padding: 14px 16px; border-radius: 6px; font-size: 14px; display: none; }
-  #status.success { display: block; background: #1A2419; border: 1px solid #2D5A2A; color: #B8E5B0; }
   #status.error { display: block; background: #2A1416; border: 1px solid #5A2A2A; color: #E5B0B0; }
+
+  #success-screen { display: none; text-align: center; padding: 60px 20px; }
+  #success-screen.show { display: block; animation: fadeIn 0.4s ease; }
+  #success-screen .check { width: 72px; height: 72px; margin: 0 auto 24px; background: #DC3C82; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 38px; color: #FFFFFF; }
+  #success-screen h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #F5F1E8; margin-bottom: 12px; }
+  #success-screen p { color: #C9C4BC; font-size: 15px; margin-bottom: 28px; }
+  #success-screen button { background: transparent; color: #DC3C82; border: 1px solid #DC3C82; padding: 11px 22px; font-size: 14px; }
+  #success-screen button:hover { background: #DC3C82; color: #FFFFFF; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
   .footer { text-align: center; padding: 32px 24px; color: #6B6368; font-size: 12px; border-top: 1px solid #2A2326; margin-top: 60px; }
   .footer a { color: #C9C4BC; }
@@ -106,6 +114,13 @@
   <div class="alt-contact">
     <p>Tu préfères écrire directement ? <a href="mailto:contact@obsidianread.com">contact@obsidianread.com</a></p>
   </div>
+
+  <div id="success-screen">
+    <div class="check">✓</div>
+    <h2>Message envoyé !</h2>
+    <p>On a bien reçu ton message. On te répond sous 24-48h ouvrées sur l'email que tu nous as donné.</p>
+    <button type="button" onclick="resetForm()">Envoyer un autre message</button>
+  </div>
 </div>
 
 <div class="footer">
@@ -116,6 +131,30 @@
   const form = document.getElementById('contact-form');
   const status = document.getElementById('status');
   const submitBtn = document.getElementById('submit-btn');
+  const successScreen = document.getElementById('success-screen');
+  const altContact = document.querySelector('.alt-contact');
+  const lede = document.querySelector('.lede');
+  const h1 = document.querySelector('h1');
+
+  function showSuccess() {
+    form.style.display = 'none';
+    altContact.style.display = 'none';
+    lede.style.display = 'none';
+    h1.style.display = 'none';
+    successScreen.classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function resetForm() {
+    form.reset();
+    form.style.display = 'flex';
+    altContact.style.display = 'block';
+    lede.style.display = 'block';
+    h1.style.display = 'block';
+    successScreen.classList.remove('show');
+    status.style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -135,16 +174,16 @@
       const data = await response.json();
 
       if (data.success) {
-        status.className = 'success';
-        status.textContent = '✅ Message envoyé. On te répond sous 24-48h ouvrées.';
-        form.reset();
+        showSuccess();
       } else {
         status.className = 'error';
         status.textContent = "❌ Erreur lors de l'envoi. Écris-nous directement à contact@obsidianread.com.";
+        status.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     } catch (err) {
       status.className = 'error';
       status.textContent = "❌ Erreur réseau. Écris-nous directement à contact@obsidianread.com.";
+      status.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Envoyer le message';
