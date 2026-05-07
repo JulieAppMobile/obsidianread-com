@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nous écrire — Obsidian Read</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #0E0A0C; color: #F5F1E8; font-family: 'Inter', sans-serif; line-height: 1.65; min-height: 100vh; }
+  a { color: #DC3C82; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .top { padding: 18px 24px; border-bottom: 1px solid #2A2326; display: flex; align-items: center; gap: 12px; }
+  .top a { color: #C9C4BC; font-size: 13px; }
+
+  .container { max-width: 560px; margin: 0 auto; padding: 60px 24px 80px; }
+  h1 { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; line-height: 1.1; margin-bottom: 12px; }
+  .lede { color: #C9C4BC; font-size: 16px; margin-bottom: 36px; }
+
+  form { display: flex; flex-direction: column; gap: 18px; }
+  label { display: block; font-size: 13px; font-weight: 600; color: #F5F1E8; margin-bottom: 8px; letter-spacing: 0.3px; }
+  input, textarea, select {
+    width: 100%; background: #1A1416; border: 1px solid #2A2326; color: #F5F1E8;
+    padding: 12px 14px; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 15px;
+    transition: border-color 0.15s ease;
+  }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: #DC3C82; }
+  textarea { resize: vertical; min-height: 140px; }
+  select { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C9C4BC' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 14px center; background-size: 16px; padding-right: 40px; }
+
+  button {
+    background: #DC3C82; color: #FFFFFF; border: none; padding: 14px 24px;
+    border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+    cursor: pointer; margin-top: 8px; transition: background 0.15s ease;
+  }
+  button:hover { background: #C2316F; }
+  button:disabled { background: #6B6368; cursor: not-allowed; }
+
+  .alt-contact { margin-top: 32px; padding: 18px 20px; background: #1A1416; border-left: 3px solid #DC3C82; border-radius: 4px; }
+  .alt-contact p { font-size: 14px; color: #C9C4BC; margin: 0; }
+
+  #status { margin-top: 18px; padding: 14px 16px; border-radius: 6px; font-size: 14px; display: none; }
+  #status.success { display: block; background: #1A2419; border: 1px solid #2D5A2A; color: #B8E5B0; }
+  #status.error { display: block; background: #2A1416; border: 1px solid #5A2A2A; color: #E5B0B0; }
+
+  .footer { text-align: center; padding: 32px 24px; color: #6B6368; font-size: 12px; border-top: 1px solid #2A2326; margin-top: 60px; }
+  .footer a { color: #C9C4BC; }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="/">← Obsidian Read</a>
+</div>
+
+<div class="container">
+  <h1>Nous écrire</h1>
+  <p class="lede">Une question, un bug, une suggestion ? Réponds en français, en anglais — comme tu veux. On répond sous 24-48h ouvrées.</p>
+
+  <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    <!-- ⚠️ À remplacer par ta clé Web3Forms (gratuite sur web3forms.com) -->
+    <input type="hidden" name="access_key" value="REMPLACER_PAR_TA_CLE_WEB3FORMS">
+    <input type="hidden" name="from_name" value="Formulaire Obsidian Read">
+    <input type="hidden" name="subject" value="[obsidianread.com/contact] Nouveau message">
+    <input type="checkbox" name="botcheck" style="display:none;">
+
+    <div>
+      <label for="name">Ton prénom</label>
+      <input type="text" id="name" name="name" required placeholder="Ex : Camille">
+    </div>
+
+    <div>
+      <label for="email">Ton email</label>
+      <input type="email" id="email" name="email" required placeholder="ton.email@exemple.com">
+    </div>
+
+    <div>
+      <label for="reason">De quoi veux-tu parler ?</label>
+      <select id="reason" name="reason" required>
+        <option value="" disabled selected>Choisis un sujet…</option>
+        <option value="Bug ou problème technique">Bug ou problème technique</option>
+        <option value="Question sur mon abonnement">Question sur mon abonnement</option>
+        <option value="Question sur les Frissons">Question sur les Frissons</option>
+        <option value="Suggestion ou idée">Suggestion ou idée</option>
+        <option value="Donnees personnelles / RGPD">Données personnelles / RGPD</option>
+        <option value="Collaboration / partenariat">Collaboration / partenariat</option>
+        <option value="Autre">Autre</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="message">Ton message</label>
+      <textarea id="message" name="message" required placeholder="Raconte-nous tout…"></textarea>
+    </div>
+
+    <button type="submit" id="submit-btn">Envoyer le message</button>
+
+    <div id="status"></div>
+  </form>
+
+  <div class="alt-contact">
+    <p>Tu préfères écrire directement ? <a href="mailto:contact@obsidianread.com">contact@obsidianread.com</a></p>
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 Obsidian Read. — <a href="/terms">Conditions</a> · <a href="/privacy">Confidentialité</a>
+</div>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('status');
+  const submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi en cours…';
+    status.className = '';
+    status.style.display = 'none';
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        status.className = 'success';
+        status.textContent = '✅ Message envoyé. On te répond sous 24-48h ouvrées.';
+        form.reset();
+      } else {
+        status.className = 'error';
+        status.textContent = "❌ Erreur lors de l'envoi. Écris-nous directement à contact@obsidianread.com.";
+      }
+    } catch (err) {
+      status.className = 'error';
+      status.textContent = "❌ Erreur réseau. Écris-nous directement à contact@obsidianread.com.";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Envoyer le message';
+    }
+  });
+</script>
+
+</body>
+</html>
