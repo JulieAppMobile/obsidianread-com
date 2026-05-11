@@ -138,6 +138,58 @@
     letter-spacing: 0.3px;
   }
   .hero .cta-btn:hover { background: #C2316F; transform: translateY(-2px); box-shadow: 0 14px 36px rgba(220,60,130,0.5); }
+
+  /* ─── Download buttons (App Store + Google Play badges) ─── */
+  .download-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    margin-bottom: 18px;
+  }
+  .dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 22px;
+    background: #F5F1E8;
+    color: #0E0A0C;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.4);
+  }
+  .dl-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(220,60,130,0.3);
+  }
+  .dl-btn svg {
+    width: 26px; height: 26px;
+    flex-shrink: 0;
+    color: #0E0A0C;
+  }
+  .dl-btn .txt {
+    display: flex; flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+  }
+  .dl-btn .txt small {
+    font-size: 10px;
+    opacity: 0.7;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  .dl-btn .txt strong {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .download-row.final .dl-btn {
+    background: #F5F1E8;
+    color: #0E0A0C;
+  }
   .hero .cta-sub {
     margin-top: 18px;
     color: #6B6368;
@@ -560,7 +612,16 @@
     <p class="lede">
       Une bibliothèque française de romances slow burn, dark academia et enemies-to-lovers. Écrite pour celles qui ne referment un livre qu'au cliffhanger final.
     </p>
-    <button class="cta-btn" onclick="openModal()">Télécharger l'app</button>
+    <div class="download-row">
+      <button class="dl-btn" onclick="openModal()" aria-label="Télécharger sur l'App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        <span class="txt"><small>Télécharger sur</small><strong>App Store</strong></span>
+      </button>
+      <button class="dl-btn" onclick="openModal()" aria-label="Disponible sur Google Play">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
+        <span class="txt"><small>Disponible sur</small><strong>Google Play</strong></span>
+      </button>
+    </div>
     <div class="cta-sub">
       <strong>+10 Frissons offerts</strong> à l'inscription · Premiers chapitres gratuits
     </div>
@@ -720,7 +781,16 @@
 <section class="final-cta">
   <h2>Prête à <span class="italic">tomber</span> ?</h2>
   <p>Télécharge Obsidian Read et reçois 10 Frissons dès ton inscription. Bonne nuit blanche.</p>
-  <button onclick="openModal()">Télécharger l'app</button>
+  <div class="download-row final">
+    <button class="dl-btn" onclick="openModal()" aria-label="Télécharger sur l'App Store">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+      <span class="txt"><small>Télécharger sur</small><strong>App Store</strong></span>
+    </button>
+    <button class="dl-btn" onclick="openModal()" aria-label="Disponible sur Google Play">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
+      <span class="txt"><small>Disponible sur</small><strong>Google Play</strong></span>
+    </button>
+  </div>
 </section>
 
 <!-- ─── FOOTER ─── -->
