@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Email confirmé — Obsidian Read</title>
+<meta name="description" content="Ton email a bien été confirmé. Tu peux retourner dans l'application Obsidian Read." />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #0E0A0C;
+    color: #F5F1E8;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top {
+    padding: 18px 24px;
+    border-bottom: 1px solid #2A2326;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .top a { color: #C9C4BC; font-size: 13px; text-decoration: none; }
+  .top a:hover { color: #F5F1E8; }
+  .top .brand { color: #F5F1E8; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; }
+
+  .container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+  }
+
+  .card {
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .check-circle {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: rgba(220, 60, 130, 0.15);
+    border: 2px solid #DC3C82;
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  .check-icon {
+    width: 38px;
+    height: 38px;
+    stroke: #DC3C82;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #DC3C82;
+    margin-bottom: 36px;
+    letter-spacing: 0.3px;
+  }
+
+  .lede {
+    color: #C9C4BC;
+    font-size: 16px;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  .lede strong { color: #F5F1E8; }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #DC3C82;
+    color: #FFFFFF;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+    border: none;
+    cursor: pointer;
+  }
+  .cta:hover { background: #C2316F; transform: translateY(-1px); }
+
+  .secondary {
+    display: block;
+    margin-top: 18px;
+    color: #C9C4BC;
+    font-size: 13px;
+    text-decoration: none;
+  }
+  .secondary:hover { color: #F5F1E8; }
+
+  .star {
+    width: 18px;
+    height: 18px;
+    color: #C9A961;
+    display: inline-block;
+    margin: 32px 0 12px;
+  }
+
+  footer {
+    padding: 24px;
+    text-align: center;
+    color: #6B6368;
+    font-size: 12px;
+    border-top: 1px solid #2A2326;
+  }
+  footer a { color: #6B6368; }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.04); opacity: 0.88; }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 30px; }
+    .container { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <span class="brand">Obsidian Read</span>
+  <span style="flex: 1"></span>
+  <a href="/">Accueil</a>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="check-circle">
+      <svg class="check-icon" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+
+    <h1>Email confirmé 🌙</h1>
+    <p class="tagline">Romances qui tiennent éveillée.</p>
+
+    <p class="lede">
+      Tu peux maintenant <strong>retourner dans l'application Obsidian Read</strong> et profiter de toutes tes histoires.
+    </p>
+
+    <a href="obsidianread://" class="cta">
+      Ouvrir l'app Obsidian Read
+    </a>
+
+    <a href="/" class="secondary">Ou retourner à l'accueil du site</a>
+
+    <div style="margin-top: 40px; color: #6B6368; font-size: 11px;">✦</div>
+  </div>
+</div>
+
+<footer>
+  © Obsidian Read · <a href="/contact">Nous écrire</a> · <a href="/privacy">Confidentialité</a> · <a href="/terms">CGU</a>
+</footer>
+
+</body>
+</html>
