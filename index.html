@@ -4,10 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Obsidian Read — Romances qui tiennent éveillée</title>
-<meta name="description" content="Obsidian Read : app de lecture de romances françaises slow burn, dark academia, enemies-to-lovers. Téléchargement gratuit, 10 Frissons offerts à l'inscription." />
+<meta name="description" content="Obsidian Read — Romances slow burn, dark academia, enemies-to-lovers. App de lecture pensée en français. Premiers chapitres offerts." />
 <meta name="theme-color" content="#0E0A0C" />
 <meta property="og:title" content="Obsidian Read — Romances qui tiennent éveillée" />
-<meta property="og:description" content="App de romance FR : slow burn, dark, enemies-to-lovers. Premiers chapitres offerts. Téléchargement gratuit." />
+<meta property="og:description" content="Romances slow burn, dark academia, enemies-to-lovers. App de lecture pensée en français." />
 <meta property="og:image" content="https://obsidianread.com/favicon.png" />
 <meta property="og:type" content="website" />
 <link rel="icon" type="image/png" href="/favicon.png" />
@@ -26,23 +26,24 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  a { color: #DC3C82; text-decoration: none; transition: color 0.15s ease; }
-  a:hover { color: #F5B8C8; }
+  a { color: inherit; text-decoration: none; transition: color 0.15s ease, opacity 0.15s ease; }
+  img { display: block; max-width: 100%; }
+  button { font-family: inherit; cursor: pointer; }
 
-  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
 
   /* ─── TOPBAR ─── */
   .topbar {
     position: fixed; top: 0; left: 0; right: 0;
-    background: rgba(14, 10, 12, 0.85);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: rgba(14, 10, 12, 0.88);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     z-index: 100;
     padding: 14px 0;
   }
   .topbar .row {
-    max-width: 1180px; margin: 0 auto; padding: 0 24px;
+    max-width: 1240px; margin: 0 auto; padding: 0 24px;
     display: flex; align-items: center; justify-content: space-between;
   }
   .topbar .brand {
@@ -51,65 +52,61 @@
     font-weight: 700; font-size: 18px;
   }
   .topbar .brand img { width: 32px; height: 32px; border-radius: 7px; }
-  .topbar nav { display: flex; align-items: center; gap: 28px; }
+  .topbar nav { display: flex; align-items: center; gap: 26px; }
   .topbar nav a { color: #C9C4BC; font-size: 14px; font-weight: 500; }
   .topbar nav a:hover { color: #F5F1E8; }
   .topbar nav .cta {
     background: #DC3C82; color: #FFFFFF;
-    padding: 8px 18px; border-radius: 999px;
+    padding: 9px 20px; border-radius: 999px;
     font-weight: 700; font-size: 13px;
-    transition: background 0.15s ease;
+    transition: background 0.15s ease, transform 0.15s ease;
   }
-  .topbar nav .cta:hover { background: #C2316F; color: #FFFFFF; }
+  .topbar nav .cta:hover { background: #C2316F; color: #FFFFFF; transform: translateY(-1px); }
   @media (max-width: 720px) {
     .topbar nav { gap: 14px; }
     .topbar nav a:not(.cta) { display: none; }
   }
 
-  /* ─── HERO ─── */
+  /* ─── HERO (style Galatea : émotionnel, pas de mockup) ─── */
   .hero {
-    padding: 140px 0 80px;
+    padding: 160px 0 100px;
     position: relative;
     overflow: hidden;
+    text-align: center;
   }
   .hero::before {
     content: '';
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 80% 50% at 20% 20%, rgba(220,60,130,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse 80% 50% at 80% 60%, rgba(107,15,42,0.20) 0%, transparent 60%);
+      radial-gradient(ellipse 60% 40% at 50% 10%, rgba(220,60,130,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 80% 60% at 50% 80%, rgba(107,15,42,0.20) 0%, transparent 70%);
     pointer-events: none;
-  }
-  .hero .row {
-    display: grid;
-    grid-template-columns: 1fr 0.85fr;
-    gap: 80px;
-    align-items: center;
-    position: relative;
-  }
-  @media (max-width: 900px) {
-    .hero { padding: 120px 0 60px; }
-    .hero .row { grid-template-columns: 1fr; gap: 50px; text-align: center; }
   }
   .hero-eyebrow {
     display: inline-block;
-    padding: 6px 14px;
+    padding: 8px 18px;
     background: rgba(220,60,130,0.12);
     border: 1px solid rgba(220,60,130,0.4);
     border-radius: 999px;
     font-size: 12px;
     font-weight: 600;
     color: #F5B8C8;
-    margin-bottom: 24px;
-    letter-spacing: 0.5px;
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
   }
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(40px, 6vw, 64px);
+    font-size: clamp(44px, 8vw, 84px);
     font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
+    line-height: 1.0;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .hero h1 .italic {
     font-style: italic;
@@ -117,361 +114,266 @@
   }
   .hero .lede {
     color: #C9C4BC;
-    font-size: clamp(16px, 1.8vw, 18px);
-    margin-bottom: 36px;
-    max-width: 540px;
-    line-height: 1.7;
-  }
-  @media (max-width: 900px) {
-    .hero .lede { margin-left: auto; margin-right: auto; }
-  }
-  .download-row {
-    display: flex; gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 36px;
-  }
-  @media (max-width: 900px) {
-    .download-row { justify-content: center; }
-  }
-
-  .dl-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 22px;
-    background: #F5F1E8;
-    color: #0E0A0C;
-    border-radius: 14px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-    border: none;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-  }
-  .dl-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(220,60,130,0.3); color: #0E0A0C; }
-  .dl-btn svg { width: 28px; height: 28px; flex-shrink: 0; }
-  .dl-btn .txt { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1; }
-  .dl-btn .txt small { font-size: 10px; opacity: 0.7; font-weight: 500; letter-spacing: 0.3px; }
-  .dl-btn .txt strong { font-size: 16px; font-weight: 700; }
-
-  .hero-stats {
-    display: flex; gap: 32px;
-    flex-wrap: wrap;
-    color: #C9C4BC;
-    font-size: 14px;
-  }
-  .hero-stats .stat {
-    display: flex; flex-direction: column; gap: 2px;
-  }
-  .hero-stats .stat strong {
-    color: #F5F1E8;
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-  }
-  @media (max-width: 900px) {
-    .hero-stats { justify-content: center; }
-  }
-
-  /* ─── Phone mockup ─── */
-  .phone-mockup {
+    font-size: clamp(16px, 2vw, 19px);
+    margin-bottom: 40px;
+    max-width: 600px;
+    line-height: 1.65;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    aspect-ratio: 9 / 19.5;
-    background: #000;
-    border-radius: 38px;
-    padding: 8px;
-    box-shadow:
-      0 30px 80px rgba(220,60,130,0.25),
-      0 12px 40px rgba(0,0,0,0.7),
-      inset 0 0 0 1px rgba(255,255,255,0.06);
-    transform: rotate(-2deg);
-    transition: transform 0.4s ease;
   }
-  .phone-mockup:hover { transform: rotate(0deg); }
-  .phone-mockup .screen {
-    width: 100%; height: 100%;
-    border-radius: 30px;
-    overflow: hidden;
-    background: #0E0A0C;
-  }
-  .phone-mockup .screen img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .phone-mockup::after {
-    /* Encoche / Dynamic Island */
-    content: '';
-    position: absolute;
-    top: 18px; left: 50%;
-    transform: translateX(-50%);
-    width: 110px; height: 30px;
-    background: #000;
-    border-radius: 20px;
-    z-index: 2;
-  }
-
-  /* ─── Promo strip ─── */
-  .promo-strip {
-    background: linear-gradient(90deg, #6B0F2A 0%, #DC3C82 50%, #6B0F2A 100%);
-    padding: 16px 24px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    color: #F5F1E8;
+  .hero .cta-btn {
+    display: inline-block;
+    padding: 16px 38px;
+    background: #DC3C82;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 10px 30px rgba(220,60,130,0.4);
+    position: relative;
     letter-spacing: 0.3px;
   }
-  .promo-strip strong { font-weight: 800; }
+  .hero .cta-btn:hover { background: #C2316F; transform: translateY(-2px); box-shadow: 0 14px 36px rgba(220,60,130,0.5); }
+  .hero .cta-sub {
+    margin-top: 18px;
+    color: #6B6368;
+    font-size: 13px;
+    position: relative;
+  }
+  .hero .cta-sub strong { color: #DC3C82; font-weight: 600; }
 
-  /* ─── Section base ─── */
-  section.feat { padding: 100px 0; }
-  @media (max-width: 720px) { section.feat { padding: 70px 0; } }
-
-  .section-eyebrow {
+  /* ─── CATEGORIES GRID (style Galatea) ─── */
+  .categories { padding: 80px 0 60px; background: #110D0F; }
+  .section-header {
     text-align: center;
+    margin-bottom: 50px;
+  }
+  .section-eyebrow {
     color: #DC3C82;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
   .section-title {
-    text-align: center;
     font-family: 'Playfair Display', serif;
-    font-size: clamp(30px, 4vw, 44px);
+    font-size: clamp(28px, 4vw, 38px);
     font-weight: 700;
     line-height: 1.15;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
   .section-title .italic { font-style: italic; color: #DC3C82; }
   .section-subtitle {
-    text-align: center;
     color: #C9C4BC;
-    font-size: clamp(15px, 1.7vw, 17px);
-    max-width: 640px;
-    margin: 0 auto 64px;
-    line-height: 1.7;
-  }
-
-  /* ─── Section CATALOGUE ─── */
-  .catalog { background: #110D0F; position: relative; overflow: hidden; }
-  .catalog::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(220,60,130,0.1) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .covers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 22px;
-    position: relative;
-  }
-  .cover {
-    position: relative;
-    border-radius: 14px;
-    overflow: hidden;
-    aspect-ratio: 2 / 3;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-  .cover:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(220,60,130,0.3);
-  }
-  .cover img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
-  }
-  .cover .overlay {
-    position: absolute; left: 0; right: 0; bottom: 0;
-    padding: 14px 14px 12px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.92) 60%);
-    z-index: 2;
-  }
-  .cover .overlay .title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
     font-size: 15px;
-    color: #F5F1E8;
-    margin-bottom: 4px;
-  }
-  .cover .overlay .trope {
-    font-size: 11px;
-    color: #DC3C82;
-    font-weight: 600;
-    letter-spacing: 0.3px;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.6;
   }
 
-  /* ─── Section "Pourquoi" ─── */
-  .why { background: #0E0A0C; }
-  .why-grid {
+  .cat-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 22px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
   }
-  .why-card {
+  .cat-card {
     background: #1A1416;
     border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 18px;
-    padding: 32px 28px;
-    transition: transform 0.25s ease, border-color 0.25s ease;
-    position: relative;
-    overflow: hidden;
+    border-radius: 14px;
+    padding: 22px 18px;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
   }
-  .why-card:hover {
-    transform: translateY(-4px);
+  .cat-card:hover {
+    transform: translateY(-3px);
     border-color: rgba(220,60,130,0.4);
   }
-  .why-card .icon-circle {
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    background: rgba(220,60,130,0.12);
-    border: 1px solid rgba(220,60,130,0.3);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
-    margin-bottom: 18px;
+  .cat-card .emoji {
+    font-size: 28px;
+    margin-bottom: 10px;
   }
-  .why-card h3 {
+  .cat-card .name {
     font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 19px;
-    margin-bottom: 8px;
-  }
-  .why-card p {
-    color: #C9C4BC;
+    font-weight: 600;
     font-size: 14px;
-    line-height: 1.7;
+    color: #F5F1E8;
+    line-height: 1.3;
   }
 
-  /* ─── Section "L'expérience" — carrousel mockups ─── */
-  .experience { background: #110D0F; }
-  .mockups-carousel {
+  /* ─── CAROUSELS PAR TROPE ─── */
+  .trope-section { padding: 60px 0; background: #0E0A0C; }
+  .trope-section:nth-of-type(even) { background: #110D0F; }
+  .trope-header {
     display: flex;
-    gap: 28px;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 20px;
+  }
+  .trope-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .trope-header h2 .italic { font-style: italic; color: #DC3C82; font-weight: 400; }
+  .trope-header .view-all {
+    color: #DC3C82;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+  }
+  .trope-header .view-all:hover { color: #F5B8C8; }
+
+  .book-carousel {
+    display: flex;
+    gap: 20px;
     overflow-x: auto;
-    padding: 20px 0;
+    padding-bottom: 12px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     margin: 0 -24px;
     padding-left: 24px;
     padding-right: 24px;
   }
-  .mockups-carousel::-webkit-scrollbar { height: 6px; }
-  .mockups-carousel::-webkit-scrollbar-thumb { background: rgba(220,60,130,0.4); border-radius: 3px; }
-  .mockups-carousel .item {
-    flex: 0 0 240px;
-    scroll-snap-align: center;
-    text-align: center;
+  .book-carousel::-webkit-scrollbar { height: 6px; }
+  .book-carousel::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 3px; }
+  .book-carousel::-webkit-scrollbar-thumb { background: rgba(220,60,130,0.4); border-radius: 3px; }
+
+  .book-item {
+    flex: 0 0 180px;
+    scroll-snap-align: start;
+    cursor: pointer;
   }
-  .mockups-carousel .phone {
-    width: 100%;
-    aspect-ratio: 9 / 19.5;
-    background: #000;
-    border-radius: 28px;
-    padding: 6px;
-    box-shadow: 0 16px 40px rgba(0,0,0,0.7);
-    margin-bottom: 14px;
-    position: relative;
+  .book-item .cover {
+    aspect-ratio: 2 / 3;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    margin-bottom: 12px;
   }
-  .mockups-carousel .phone img {
+  .book-item:hover .cover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 16px 36px rgba(220,60,130,0.25);
+  }
+  .book-item .cover img {
     width: 100%; height: 100%;
-    border-radius: 22px;
-    object-fit: cover;
-    display: block;
+    object-fit: cover; display: block;
   }
-  .mockups-carousel .phone::after {
-    content: '';
-    position: absolute;
-    top: 14px; left: 50%;
-    transform: translateX(-50%);
-    width: 80px; height: 22px;
-    background: #000;
-    border-radius: 14px;
-    z-index: 2;
-  }
-  .mockups-carousel .label {
+  .book-item .title {
     font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: #DC3C82;
+    font-weight: 600;
     font-size: 14px;
-    letter-spacing: 0.3px;
+    color: #F5F1E8;
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .book-item .author {
+    font-size: 12px;
+    color: #6B6368;
   }
 
-  /* ─── Manifesto ─── */
-  .manifesto { background: #0E0A0C; padding: 100px 24px; }
+  /* ─── MANIFESTO ─── */
+  .manifesto {
+    padding: 100px 24px;
+    background: #110D0F;
+    position: relative;
+    overflow: hidden;
+  }
+  .manifesto::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(220,60,130,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
   .manifesto-card {
-    max-width: 720px; margin: 0 auto;
-    background: #1A1416;
-    border-radius: 24px;
-    padding: 56px 48px;
-    border-left: 3px solid #DC3C82;
+    max-width: 760px; margin: 0 auto;
+    text-align: center;
     position: relative;
   }
   .manifesto-card .quote-mark {
-    position: absolute;
-    top: 24px; right: 36px;
     font-family: 'Playfair Display', serif;
     font-size: 80px;
-    color: rgba(220,60,130,0.2);
-    line-height: 1;
+    color: rgba(220,60,130,0.3);
+    line-height: 0.5;
+    margin-bottom: 16px;
+    display: block;
   }
   .manifesto-card p {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(18px, 2.2vw, 22px);
+    font-size: clamp(20px, 2.6vw, 26px);
     font-style: italic;
     color: #F5F1E8;
-    line-height: 1.6;
-    margin-bottom: 24px;
-    position: relative;
+    line-height: 1.55;
+    margin-bottom: 18px;
+    letter-spacing: 0.2px;
   }
   .manifesto-card .signature {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-size: 13px;
     color: #C9C4BC;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 600;
+    margin-top: 24px;
   }
-  @media (max-width: 600px) { .manifesto-card { padding: 40px 28px; } }
 
-  /* ─── Final CTA ─── */
+  /* ─── FINAL CTA ─── */
   .final-cta {
     background: linear-gradient(135deg, #6B0F2A 0%, #2A0F1A 100%);
     text-align: center;
-    padding: 90px 24px;
+    padding: 100px 24px;
     position: relative;
     overflow: hidden;
   }
   .final-cta::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, rgba(220,60,130,0.3) 0%, transparent 60%);
+    background: radial-gradient(ellipse at center, rgba(220,60,130,0.35) 0%, transparent 60%);
     pointer-events: none;
   }
   .final-cta h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(30px, 4.5vw, 44px);
+    font-size: clamp(32px, 5vw, 48px);
     font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 16px;
+    line-height: 1.05;
+    margin-bottom: 18px;
     position: relative;
   }
   .final-cta h2 .italic { font-style: italic; }
   .final-cta p {
-    color: rgba(245,241,232,0.85);
+    color: rgba(245,241,232,0.92);
     font-size: 16px;
-    max-width: 480px;
+    max-width: 500px;
     margin: 0 auto 36px;
     line-height: 1.6;
     position: relative;
   }
-  .final-cta .download-row { justify-content: center; position: relative; }
+  .final-cta button {
+    display: inline-block;
+    padding: 16px 40px;
+    background: #F5F1E8;
+    color: #0E0A0C;
+    border: none;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    position: relative;
+    letter-spacing: 0.3px;
+  }
+  .final-cta button:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,0.5); }
 
   /* ─── Footer ─── */
   footer {
@@ -480,32 +382,35 @@
     padding: 56px 24px 32px;
   }
   footer .row {
-    max-width: 1180px; margin: 0 auto;
+    max-width: 1240px; margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 32px;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
     margin-bottom: 36px;
   }
   @media (max-width: 720px) {
-    footer .row { grid-template-columns: 1fr; text-align: center; }
+    footer .row { grid-template-columns: 1fr; text-align: center; gap: 32px; }
   }
   footer .col h4 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     color: #F5F1E8;
     font-size: 15px;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
-  footer .col a { display: block; color: #C9C4BC; font-size: 13px; margin-bottom: 8px; }
+  footer .col a { display: block; color: #C9C4BC; font-size: 13px; margin-bottom: 10px; }
   footer .col a:hover { color: #F5F1E8; }
   footer .brand-bottom {
     display: flex; align-items: center; gap: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
-  footer .brand-bottom img { width: 32px; height: 32px; border-radius: 7px; }
+  @media (max-width: 720px) {
+    footer .brand-bottom { justify-content: center; }
+  }
+  footer .brand-bottom img { width: 36px; height: 36px; border-radius: 8px; }
   footer .brand-bottom span {
     font-family: 'Playfair Display', serif;
-    font-weight: 700; font-size: 16px;
+    font-weight: 700; font-size: 17px;
     color: #F5F1E8;
   }
   footer .tagline-foot {
@@ -514,9 +419,27 @@
     color: #DC3C82;
     font-size: 13px;
     letter-spacing: 0.5px;
+    margin-bottom: 18px;
   }
+  footer .socials {
+    display: flex; gap: 12px;
+  }
+  @media (max-width: 720px) {
+    footer .socials { justify-content: center; }
+  }
+  footer .socials a {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    color: #C9C4BC;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  footer .socials a:hover { background: rgba(220,60,130,0.18); color: #F5B8C8; }
+  footer .socials svg { width: 16px; height: 16px; }
   footer .copyright {
-    max-width: 1180px; margin: 0 auto;
+    max-width: 1240px; margin: 0 auto;
     border-top: 1px solid rgba(255,255,255,0.05);
     padding-top: 24px;
     text-align: center;
@@ -524,10 +447,10 @@
     font-size: 12px;
   }
 
-  /* ─── Modal lead capture (au clic sur télécharger avant publication stores) ─── */
+  /* ─── Modal lead capture ─── */
   .modal-overlay {
     position: fixed; inset: 0;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.82);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 1000;
@@ -539,16 +462,16 @@
   .modal {
     background: #1A1416;
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-    padding: 40px;
-    max-width: 440px;
+    border-radius: 24px;
+    padding: 48px 40px 40px;
+    max-width: 460px;
     width: 100%;
     position: relative;
     text-align: center;
   }
   .modal .close {
     position: absolute;
-    top: 16px; right: 16px;
+    top: 18px; right: 18px;
     background: transparent; border: none;
     color: #C9C4BC;
     width: 32px; height: 32px;
@@ -557,17 +480,21 @@
     transition: background 0.15s ease;
   }
   .modal .close:hover { background: rgba(255,255,255,0.06); color: #F5F1E8; }
+  .modal .moon {
+    font-size: 36px; margin-bottom: 12px;
+  }
   .modal h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    line-height: 1.15;
   }
   .modal h3 .italic { font-style: italic; color: #DC3C82; }
   .modal p {
     color: #C9C4BC;
     font-size: 14px;
-    margin-bottom: 24px;
+    margin-bottom: 26px;
     line-height: 1.6;
   }
   .modal form {
@@ -582,6 +509,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     width: 100%;
+    text-align: center;
   }
   .modal input[type="email"]:focus { outline: none; border-color: #DC3C82; }
   .modal button[type="submit"] {
@@ -603,7 +531,7 @@
     font-size: 13px;
     display: none;
   }
-  .modal .status.success { display: block; background: rgba(45,140,90,0.12); color: #C0E8D0; }
+  .modal .status.success { display: block; background: rgba(45,140,90,0.15); color: #C0E8D0; }
   .modal .status.error { display: block; background: rgba(220,60,130,0.12); color: #F5B8C8; }
 </style>
 </head>
@@ -617,9 +545,9 @@
       <span>Obsidian Read</span>
     </a>
     <nav>
-      <a href="#catalogue">Catalogue</a>
-      <a href="#why">Pourquoi nous</a>
-      <a href="#" class="cta" onclick="openModal();return false;">Télécharger</a>
+      <a href="#tropes">Tropes</a>
+      <a href="#histoires">Histoires</a>
+      <a href="#" class="cta" onclick="openModal();return false;">Télécharger l'app</a>
     </nav>
   </div>
 </div>
@@ -627,167 +555,148 @@
 <!-- ─── HERO ─── -->
 <section class="hero">
   <div class="container">
-    <div class="row">
-      <div class="hero-text">
-        <span class="hero-eyebrow">🌙 Romance app · FR</span>
-        <h1>Romances qui tiennent<br><span class="italic">éveillée</span>.</h1>
-        <p class="lede">
-          Une bibliothèque française de romances <strong>slow burn</strong>, <strong>dark academia</strong> et <strong>enemies-to-lovers</strong>, écrite pour celles qui ne lâchent un livre qu'au cliffhanger final.
-        </p>
+    <span class="hero-eyebrow">🌙 Romance app · Francophonie</span>
+    <h1>Cette nuit, choisis <span class="italic">ton histoire</span>.</h1>
+    <p class="lede">
+      Une bibliothèque française de romances slow burn, dark academia et enemies-to-lovers. Écrite pour celles qui ne referment un livre qu'au cliffhanger final.
+    </p>
+    <button class="cta-btn" onclick="openModal()">Télécharger l'app</button>
+    <div class="cta-sub">
+      <strong>+10 Frissons offerts</strong> à l'inscription · Premiers chapitres gratuits
+    </div>
+  </div>
+</section>
 
-        <div class="download-row">
-          <button class="dl-btn" onclick="openModal()">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-            <span class="txt">
-              <small>Télécharger sur</small>
-              <strong>App Store</strong>
-            </span>
-          </button>
-          <button class="dl-btn" onclick="openModal()">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
-            <span class="txt">
-              <small>Disponible sur</small>
-              <strong>Google Play</strong>
-            </span>
-          </button>
-        </div>
+<!-- ─── CATEGORIES GRID ─── -->
+<section class="categories" id="tropes">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Catégories</div>
+      <h2 class="section-title">Trouve ton <span class="italic">trope</span>.</h2>
+    </div>
 
+    <div class="cat-grid">
+      <div class="cat-card" onclick="openModal()">
+        <div class="emoji">🌙</div>
+        <div class="name">Slow Burn</div>
       </div>
-
-      <div class="hero-mockup">
-        <div class="phone-mockup">
-          <div class="screen">
-            <img src="/mockups/mockup-accueil.jpg" alt="App Obsidian Read — page d'accueil" />
-          </div>
-        </div>
+      <div class="cat-card" onclick="openModal()">
+        <div class="emoji">🖤</div>
+        <div class="name">Dark Romance</div>
+      </div>
+      <div class="cat-card" onclick="openModal()">
+        <div class="emoji">⚔️</div>
+        <div class="name">Enemies to Lovers</div>
+      </div>
+      <div class="cat-card" onclick="openModal()">
+        <div class="emoji">🚫</div>
+        <div class="name">Forbidden</div>
+      </div>
+      <div class="cat-card" onclick="openModal()">
+        <div class="emoji">🏒</div>
+        <div class="name">Hockey Romance</div>
+      </div>
+      <div class="cat-card" onclick="openModal()">
+        <div class="emoji">🎓</div>
+        <div class="name">Prof-étudiante</div>
+      </div>
+      <div class="cat-card" onclick="openModal()">
+        <div class="emoji">👨‍👧</div>
+        <div class="name">Single Dad</div>
+      </div>
+      <div class="cat-card" onclick="openModal()">
+        <div class="emoji">🎯</div>
+        <div class="name">Hitman & Target</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── PROMO STRIP ─── -->
-<div class="promo-strip">
-  🎁 <strong>+10 Frissons offerts</strong> à l'inscription · Premiers chapitres gratuits · Aucune pub
-</div>
-
-<!-- ─── CATALOGUE ─── -->
-<section class="feat catalog" id="catalogue">
+<!-- ─── CAROUSELS PAR TROPE ─── -->
+<section class="trope-section" id="histoires">
   <div class="container">
-    <div class="section-eyebrow">Notre catalogue</div>
-    <h2 class="section-title">Des histoires qui te <span class="italic">consomment</span>.</h2>
-    <p class="section-subtitle">
-      Des romans complets, écrits en français, pour la francophonie. Pas de traduction ratée, pas de filler — que de la tension.
-    </p>
-
-    <div class="covers-grid">
-      <div class="cover" onclick="openModal()">
-        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/a-charge-a-coeur.jpg?v=2" alt="À charge à cœur" />
-        <div class="overlay">
-          <div class="title">À charge à cœur</div>
-          <div class="trope">Enemies to Lovers · Prof-étudiante</div>
-        </div>
+    <div class="trope-header">
+      <h2><span class="italic">Slow burn</span> qui te dévore</h2>
+      <a href="#" class="view-all" onclick="openModal();return false;">Voir tout ›</a>
+    </div>
+    <div class="book-carousel">
+      <div class="book-item" onclick="openModal()">
+        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/a-charge-a-coeur.jpg?v=2" alt="À charge à cœur" loading="lazy" /></div>
+        <div class="title">À charge à cœur</div>
+        <div class="author">Obsidian Read</div>
       </div>
-      <div class="cover" onclick="openModal()">
-        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/hors-antenne.jpg?v=2" alt="Hors antenne" />
-        <div class="overlay">
-          <div class="title">Hors antenne</div>
-          <div class="trope">Slow burn · Hockey romance</div>
-        </div>
+      <div class="book-item" onclick="openModal()">
+        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/une-nouvelle-partition.jpg?v=3" alt="Une Nouvelle Partition" loading="lazy" /></div>
+        <div class="title">Une Nouvelle Partition</div>
+        <div class="author">Obsidian Read</div>
       </div>
-      <div class="cover" onclick="openModal()">
-        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sous-le-masque.jpg?v=2" alt="Sous le masque" />
-        <div class="overlay">
-          <div class="title">Sous le masque</div>
-          <div class="trope">Forbidden · Musique classique</div>
-        </div>
-      </div>
-      <div class="cover" onclick="openModal()">
-        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/la-cible.jpg?v=2" alt="La Cible" />
-        <div class="overlay">
-          <div class="title">La Cible</div>
-          <div class="trope">Dark Romance · Hitman & Target</div>
-        </div>
-      </div>
-      <div class="cover" onclick="openModal()">
-        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/une-nouvelle-partition.jpg?v=3" alt="Une Nouvelle Partition" />
-        <div class="overlay">
-          <div class="title">Une Nouvelle Partition</div>
-          <div class="trope">Single-Dad · Slow burn musical</div>
-        </div>
+      <div class="book-item" onclick="openModal()">
+        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/hors-antenne.jpg?v=2" alt="Hors antenne" loading="lazy" /></div>
+        <div class="title">Hors antenne</div>
+        <div class="author">Obsidian Read</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── POURQUOI ─── -->
-<section class="feat why" id="why">
+<section class="trope-section">
   <div class="container">
-    <div class="section-eyebrow">Ce qui change la donne</div>
-    <h2 class="section-title">Écrit pour celles qui <span class="italic">ne ferment pas</span> le livre.</h2>
-    <p class="section-subtitle">
-      Une promesse simple : du slow burn pour de vrai, pensé en français, sans pub, sans algorithme qui te trahit.
-    </p>
-
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="icon-circle">🌙</div>
-        <h3>Slow burn pour de VRAI</h3>
-        <p>On prend le temps. Chaque regard, chaque silence pèse une tonne. On ne saute pas les étapes pour gagner du temps de lecture.</p>
+    <div class="trope-header">
+      <h2>Dark romance & <span class="italic">tension extrême</span></h2>
+      <a href="#" class="view-all" onclick="openModal();return false;">Voir tout ›</a>
+    </div>
+    <div class="book-carousel">
+      <div class="book-item" onclick="openModal()">
+        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/la-cible.jpg?v=2" alt="La Cible" loading="lazy" /></div>
+        <div class="title">La Cible</div>
+        <div class="author">Obsidian Read</div>
       </div>
-      <div class="why-card">
-        <div class="icon-circle">🇫🇷</div>
-        <h3>Pensé en français</h3>
-        <p>Pas de traductions ratées de Wattpad EN. Chaque histoire est écrite avec notre tone, pour la francophonie.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon-circle">🔥</div>
-        <h3>Cliffhanger garanti</h3>
-        <p>Une scène-pivot par chapitre. Toujours. Tu refermes le livre pour de bon à 4h du matin… ou jamais.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon-circle">📖</div>
-        <h3>Premiers chapitres offerts</h3>
-        <p>Goûte la tension. Si t'es accro, débloque la suite avec des Frissons ou prends l'abonnement illimité.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon-circle">🎁</div>
-        <h3>+10 Frissons à l'inscription</h3>
-        <p>Cadeau de bienvenue dès la création de ton compte. De quoi débloquer ton premier chapitre payant gratuitement.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon-circle">🌑</div>
-        <h3>Mode nuit by default</h3>
-        <p>Fond noir, texte crème. Doux pour les yeux à 3h du matin. Aucune pub. Jamais. On respecte tes yeux et ton temps.</p>
+      <div class="book-item" onclick="openModal()">
+        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sous-le-masque.jpg?v=2" alt="Sous le masque" loading="lazy" /></div>
+        <div class="title">Sous le masque</div>
+        <div class="author">Obsidian Read</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── EXPÉRIENCE ─── -->
-<section class="feat experience">
+<section class="trope-section">
   <div class="container">
-    <div class="section-eyebrow">Dans l'app</div>
-    <h2 class="section-title">L'expérience que tu n'as <span class="italic">jamais eue</span>.</h2>
-    <p class="section-subtitle">
-      Une bibliothèque, des couvertures qui te grippent, un mode lecture pensé pour les nuits longues.
-    </p>
+    <div class="trope-header">
+      <h2>Enemies to <span class="italic">lovers</span></h2>
+      <a href="#" class="view-all" onclick="openModal();return false;">Voir tout ›</a>
+    </div>
+    <div class="book-carousel">
+      <div class="book-item" onclick="openModal()">
+        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/a-charge-a-coeur.jpg?v=2" alt="À charge à cœur" loading="lazy" /></div>
+        <div class="title">À charge à cœur</div>
+        <div class="author">Obsidian Read</div>
+      </div>
+      <div class="book-item" onclick="openModal()">
+        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/hors-antenne.jpg?v=2" alt="Hors antenne" loading="lazy" /></div>
+        <div class="title">Hors antenne</div>
+        <div class="author">Obsidian Read</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="mockups-carousel">
-      <div class="item">
-        <div class="phone"><img src="/mockups/mockup-accueil.jpg" alt="Page d'accueil" /></div>
-        <div class="label">Accueil personnalisé</div>
+<section class="trope-section">
+  <div class="container">
+    <div class="trope-header">
+      <h2>Forbidden & <span class="italic">slow burn musical</span></h2>
+      <a href="#" class="view-all" onclick="openModal();return false;">Voir tout ›</a>
+    </div>
+    <div class="book-carousel">
+      <div class="book-item" onclick="openModal()">
+        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sous-le-masque.jpg?v=2" alt="Sous le masque" loading="lazy" /></div>
+        <div class="title">Sous le masque</div>
+        <div class="author">Obsidian Read</div>
       </div>
-      <div class="item">
-        <div class="phone"><img src="/mockups/mockup-fiche.jpg" alt="Fiche livre" /></div>
-        <div class="label">Fiche d'une histoire</div>
-      </div>
-      <div class="item">
-        <div class="phone"><img src="/mockups/mockup-lecture.jpg" alt="Mode lecture" /></div>
-        <div class="label">Mode lecture sépia</div>
-      </div>
-      <div class="item">
-        <div class="phone"><img src="/mockups/mockup-frissons.jpg" alt="Frissons" /></div>
-        <div class="label">Tes Frissons, ta monnaie</div>
+      <div class="book-item" onclick="openModal()">
+        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/une-nouvelle-partition.jpg?v=3" alt="Une Nouvelle Partition" loading="lazy" /></div>
+        <div class="title">Une Nouvelle Partition</div>
+        <div class="author">Obsidian Read</div>
       </div>
     </div>
   </div>
@@ -796,9 +705,9 @@
 <!-- ─── MANIFESTO ─── -->
 <section class="manifesto">
   <div class="manifesto-card">
-    <div class="quote-mark">"</div>
+    <span class="quote-mark">"</span>
     <p>
-      J'ai construit Obsidian Read parce que toutes les apps de romance francophones traduisent des fanfics anglaises avec des phrases ratées. Mes lectrices méritent mieux que ça : du français pensé pour le français, des cliffhangers qui font mal, des slow burn qui prennent leur temps.
+      Toutes les apps de romance francophones traduisent des fanfics anglaises avec des phrases ratées. Mes lectrices méritent mieux : du français pensé pour le français, des cliffhangers qui font mal, des slow burn qui prennent leur temps.
     </p>
     <p>
       Ici, on ne saute pas les étapes. On les déguste.
@@ -810,17 +719,8 @@
 <!-- ─── FINAL CTA ─── -->
 <section class="final-cta">
   <h2>Prête à <span class="italic">tomber</span> ?</h2>
-  <p>Télécharge Obsidian Read et reçois <strong>10 Frissons</strong> dès ton inscription. Bonne nuit blanche.</p>
-  <div class="download-row">
-    <button class="dl-btn" onclick="openModal()">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-      <span class="txt"><small>Télécharger sur</small><strong>App Store</strong></span>
-    </button>
-    <button class="dl-btn" onclick="openModal()">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
-      <span class="txt"><small>Disponible sur</small><strong>Google Play</strong></span>
-    </button>
-  </div>
+  <p>Télécharge Obsidian Read et reçois 10 Frissons dès ton inscription. Bonne nuit blanche.</p>
+  <button onclick="openModal()">Télécharger l'app</button>
 </section>
 
 <!-- ─── FOOTER ─── -->
@@ -832,11 +732,19 @@
         <span>Obsidian Read</span>
       </div>
       <div class="tagline-foot">Romances qui tiennent éveillée.</div>
+      <div class="socials">
+        <a href="https://www.tiktok.com/@obsidianread" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/obsidianread" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2 0 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07-3.2 0-3.58 0-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85 0-3.2 0-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 1.44C8.86 3.6 8.5 3.61 7.27 3.67 4.65 3.78 3.58 4.87 3.47 7.49c-.06 1.24-.07 1.6-.07 4.51 0 2.9.01 3.27.07 4.51.11 2.62 1.18 3.71 3.8 3.82 1.24.06 1.6.07 4.73.07 3.13 0 3.5-.01 4.73-.07 2.62-.11 3.7-1.2 3.8-3.82.07-1.24.07-1.6.07-4.51 0-2.9-.01-3.27-.07-4.51-.11-2.62-1.18-3.71-3.8-3.82-1.23-.06-1.6-.07-4.73-.07zm0 2.45a5.96 5.96 0 1 0 0 11.92 5.96 5.96 0 0 0 0-11.92zm0 9.83a3.87 3.87 0 1 1 0-7.74 3.87 3.87 0 0 1 0 7.74zm6.13-10.96a1.39 1.39 0 1 0 0 2.78 1.39 1.39 0 0 0 0-2.78z"/></svg>
+        </a>
+      </div>
     </div>
     <div class="col">
       <h4>Navigation</h4>
-      <a href="#catalogue">Catalogue</a>
-      <a href="#why">Pourquoi nous</a>
+      <a href="#tropes">Tropes</a>
+      <a href="#histoires">Histoires</a>
       <a href="/contact">Nous écrire</a>
     </div>
     <div class="col">
@@ -850,11 +758,12 @@
   </div>
 </footer>
 
-<!-- ─── MODAL CAPTURE (déclenché par clic sur "Télécharger") ─── -->
+<!-- ─── MODAL CAPTURE ─── -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModalOnBackdrop(event)">
   <div class="modal" id="modal">
     <button class="close" onclick="closeModal()" aria-label="Fermer">×</button>
-    <h3>Sortie <span class="italic">imminente</span> 🌙</h3>
+    <div class="moon">🌙</div>
+    <h3>Sortie <span class="italic">imminente</span></h3>
     <p>L'app arrive très bientôt sur App Store et Google Play. Laisse-moi ton email, je te préviens dès qu'elle est téléchargeable.</p>
 
     <form id="lead-form">
@@ -867,7 +776,7 @@
     </form>
 
     <div class="status success" id="lead-success">Merci 🩷 On t'écrit dès que l'app sort.</div>
-    <div class="status error" id="lead-error">Une erreur est survenue. Réessaie ou écris à <a href="/contact">contact@obsidianread.com</a></div>
+    <div class="status error" id="lead-error">Une erreur est survenue. Réessaie ou écris à <a href="/contact" style="color:#F5B8C8;text-decoration:underline">contact@obsidianread.com</a></div>
   </div>
 </div>
 
