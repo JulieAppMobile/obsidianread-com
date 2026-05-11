@@ -4,298 +4,607 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Obsidian Read — Romances qui tiennent éveillée</title>
-<meta name="description" content="Obsidian Read — App de lecture de romances francophones : slow burn, dark academia, enemies-to-lovers. Bientôt sur iOS et Android." />
-<meta property="og:title" content="Obsidian Read" />
-<meta property="og:description" content="Romances qui tiennent éveillée. Slow burn, dark academia, enemies-to-lovers — pour la francophonie." />
+<meta name="description" content="Obsidian Read : app de lecture de romances françaises slow burn, dark academia, enemies-to-lovers. Téléchargement gratuit, 10 Frissons offerts à l'inscription." />
+<meta name="theme-color" content="#0E0A0C" />
+<meta property="og:title" content="Obsidian Read — Romances qui tiennent éveillée" />
+<meta property="og:description" content="App de romance FR : slow burn, dark, enemies-to-lovers. 3 chapitres offerts par histoire. Téléchargement gratuit." />
 <meta property="og:image" content="https://obsidianread.com/favicon.png" />
 <meta property="og:type" content="website" />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body {
+  html { scroll-behavior: smooth; }
+  body {
     background: #0E0A0C;
     color: #F5F1E8;
     font-family: 'Inter', sans-serif;
-    line-height: 1.65;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   a { color: #DC3C82; text-decoration: none; transition: color 0.15s ease; }
   a:hover { color: #F5B8C8; }
 
-  /* ─── Sections ─── */
-  section { padding: 80px 24px; }
-  .container { max-width: 1100px; margin: 0 auto; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
 
-  /* ─── Topbar ─── */
+  /* ─── TOPBAR ─── */
   .topbar {
-    position: sticky; top: 0;
-    background: rgba(14, 10, 12, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid #1A1416;
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(14, 10, 12, 0.85);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
     z-index: 100;
-    padding: 14px 24px;
+    padding: 14px 0;
   }
   .topbar .row {
-    max-width: 1100px; margin: 0 auto;
+    max-width: 1180px; margin: 0 auto; padding: 0 24px;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .topbar .brand { display: flex; align-items: center; gap: 10px; }
-  .topbar .brand img { width: 36px; height: 36px; border-radius: 8px; }
-  .topbar .brand span {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: #F5F1E8;
+  .topbar .brand {
+    display: flex; align-items: center; gap: 10px;
+    color: #F5F1E8; font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 18px;
   }
-  .topbar nav a {
-    color: #C9C4BC;
-    font-size: 14px;
-    margin-left: 22px;
-    font-weight: 500;
-  }
+  .topbar .brand img { width: 32px; height: 32px; border-radius: 7px; }
+  .topbar nav { display: flex; align-items: center; gap: 28px; }
+  .topbar nav a { color: #C9C4BC; font-size: 14px; font-weight: 500; }
   .topbar nav a:hover { color: #F5F1E8; }
+  .topbar nav .cta {
+    background: #DC3C82; color: #FFFFFF;
+    padding: 8px 18px; border-radius: 999px;
+    font-weight: 700; font-size: 13px;
+    transition: background 0.15s ease;
+  }
+  .topbar nav .cta:hover { background: #C2316F; color: #FFFFFF; }
+  @media (max-width: 720px) {
+    .topbar nav { gap: 14px; }
+    .topbar nav a:not(.cta) { display: none; }
+  }
 
-  /* ─── Hero ─── */
-  .hero { text-align: center; padding: 100px 24px 60px; position: relative; overflow: hidden; }
+  /* ─── HERO ─── */
+  .hero {
+    padding: 140px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
   .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center top, rgba(220,60,130,0.18) 0%, transparent 60%);
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 20%, rgba(220,60,130,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 50% at 80% 60%, rgba(107,15,42,0.20) 0%, transparent 60%);
     pointer-events: none;
   }
-  .hero-logo {
-    width: 120px; height: 120px;
-    border-radius: 26px;
-    margin-bottom: 28px;
-    box-shadow: 0 12px 36px rgba(220,60,130,0.35), 0 4px 12px rgba(0,0,0,0.4);
+  .hero .row {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: 80px;
+    align-items: center;
     position: relative;
+  }
+  @media (max-width: 900px) {
+    .hero { padding: 120px 0 60px; }
+    .hero .row { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(220,60,130,0.12);
+    border: 1px solid rgba(220,60,130,0.4);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #F5B8C8;
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
   }
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(40px, 7vw, 64px);
+    font-size: clamp(40px, 6vw, 64px);
     font-weight: 700;
-    letter-spacing: 0.5px;
     line-height: 1.05;
-    position: relative;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
   }
-  .hero .tagline {
-    font-family: 'Playfair Display', serif;
+  .hero h1 .italic {
     font-style: italic;
     color: #DC3C82;
-    font-size: clamp(16px, 2.5vw, 22px);
-    margin-top: 14px;
-    letter-spacing: 1px;
-    position: relative;
   }
   .hero .lede {
     color: #C9C4BC;
-    font-size: clamp(15px, 1.8vw, 17px);
+    font-size: clamp(16px, 1.8vw, 18px);
+    margin-bottom: 36px;
     max-width: 540px;
-    margin: 28px auto 0;
-    line-height: 1.65;
-    position: relative;
+    line-height: 1.7;
   }
-  .badges {
-    display: flex; gap: 12px; justify-content: center;
-    margin-top: 36px; flex-wrap: wrap; position: relative;
+  @media (max-width: 900px) {
+    .hero .lede { margin-left: auto; margin-right: auto; }
   }
-  .badge {
-    padding: 9px 18px;
-    border: 1px solid #2A2326;
-    background: #1A1416;
-    border-radius: 999px;
-    font-size: 13px;
-    color: #F5F1E8;
-    font-weight: 500;
+  .download-row {
+    display: flex; gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
   }
-  .badge .dot {
-    display: inline-block;
-    width: 8px; height: 8px;
-    background: #DC3C82;
-    border-radius: 50%;
-    margin-right: 8px;
-    box-shadow: 0 0 8px rgba(220,60,130,0.7);
-    animation: pulse 2s infinite;
+  @media (max-width: 900px) {
+    .download-row { justify-content: center; }
   }
-  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-  /* ─── Section "Ce qui change la donne" ─── */
-  .pitch { background: #110D0F; }
+  .dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 22px;
+    background: #F5F1E8;
+    color: #0E0A0C;
+    border-radius: 14px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .dl-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(220,60,130,0.3); color: #0E0A0C; }
+  .dl-btn svg { width: 28px; height: 28px; flex-shrink: 0; }
+  .dl-btn .txt { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1; }
+  .dl-btn .txt small { font-size: 10px; opacity: 0.7; font-weight: 500; letter-spacing: 0.3px; }
+  .dl-btn .txt strong { font-size: 16px; font-weight: 700; }
+
+  .hero-stats {
+    display: flex; gap: 32px;
+    flex-wrap: wrap;
+    color: #C9C4BC;
+    font-size: 14px;
+  }
+  .hero-stats .stat {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .hero-stats .stat strong {
+    color: #F5F1E8;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  @media (max-width: 900px) {
+    .hero-stats { justify-content: center; }
+  }
+
+  /* ─── Phone mockup ─── */
+  .phone-mockup {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    aspect-ratio: 9 / 19.5;
+    background: #000;
+    border-radius: 38px;
+    padding: 8px;
+    box-shadow:
+      0 30px 80px rgba(220,60,130,0.25),
+      0 12px 40px rgba(0,0,0,0.7),
+      inset 0 0 0 1px rgba(255,255,255,0.06);
+    transform: rotate(-2deg);
+    transition: transform 0.4s ease;
+  }
+  .phone-mockup:hover { transform: rotate(0deg); }
+  .phone-mockup .screen {
+    width: 100%; height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    background: #0E0A0C;
+  }
+  .phone-mockup .screen img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .phone-mockup::after {
+    /* Encoche / Dynamic Island */
+    content: '';
+    position: absolute;
+    top: 18px; left: 50%;
+    transform: translateX(-50%);
+    width: 110px; height: 30px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 2;
+  }
+
+  /* ─── Promo strip ─── */
+  .promo-strip {
+    background: linear-gradient(90deg, #6B0F2A 0%, #DC3C82 50%, #6B0F2A 100%);
+    padding: 16px 24px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #F5F1E8;
+    letter-spacing: 0.3px;
+  }
+  .promo-strip strong { font-weight: 800; }
+
+  /* ─── Section base ─── */
+  section.feat { padding: 100px 0; }
+  @media (max-width: 720px) { section.feat { padding: 70px 0; } }
+
+  .section-eyebrow {
+    text-align: center;
+    color: #DC3C82;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
   .section-title {
     text-align: center;
     font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 4vw, 38px);
+    font-size: clamp(30px, 4vw, 44px);
     font-weight: 700;
-    margin-bottom: 12px;
+    line-height: 1.15;
+    margin-bottom: 14px;
   }
+  .section-title .italic { font-style: italic; color: #DC3C82; }
   .section-subtitle {
     text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: #DC3C82;
-    font-size: 16px;
-    margin-bottom: 56px;
-    letter-spacing: 1px;
+    color: #C9C4BC;
+    font-size: clamp(15px, 1.7vw, 17px);
+    max-width: 640px;
+    margin: 0 auto 64px;
+    line-height: 1.7;
   }
-  .grid-3 {
+
+  /* ─── Section CATALOGUE ─── */
+  .catalog { background: #110D0F; position: relative; overflow: hidden; }
+  .catalog::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(220,60,130,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .covers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 22px;
+    position: relative;
+  }
+  .cover {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 2 / 3;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .cover:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(220,60,130,0.3);
+  }
+  .cover img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .cover .overlay {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 14px 14px 12px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.92) 60%);
+    z-index: 2;
+  }
+  .cover .overlay .title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #F5F1E8;
+    margin-bottom: 4px;
+  }
+  .cover .overlay .trope {
+    font-size: 11px;
+    color: #DC3C82;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  /* ─── Section "Pourquoi" ─── */
+  .why { background: #0E0A0C; }
+  .why-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    gap: 22px;
   }
-  .pitch-card {
+  .why-card {
     background: #1A1416;
-    border: 1px solid #2A2326;
-    border-radius: 16px;
-    padding: 28px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 18px;
+    padding: 32px 28px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
   }
-  .pitch-card:hover { transform: translateY(-4px); border-color: #DC3C82; }
-  .pitch-card .icon {
-    font-size: 28px; margin-bottom: 14px;
+  .why-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(220,60,130,0.4);
   }
-  .pitch-card h3 {
+  .why-card .icon-circle {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: rgba(220,60,130,0.12);
+    border: 1px solid rgba(220,60,130,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+  .why-card h3 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: 19px;
     margin-bottom: 8px;
   }
-  .pitch-card p {
+  .why-card p {
     color: #C9C4BC;
     font-size: 14px;
-    line-height: 1.65;
+    line-height: 1.7;
   }
 
-  /* ─── Mockups iPhone ─── */
-  .mockups { background: #0E0A0C; }
-  .mockups-grid {
+  /* ─── Section "L'expérience" — carrousel mockups ─── */
+  .experience { background: #110D0F; }
+  .mockups-carousel {
     display: flex;
     gap: 28px;
     overflow-x: auto;
     padding: 20px 0;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    margin: 0 -24px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
-  .mockups-grid::-webkit-scrollbar { display: none; }
-  .mockup {
+  .mockups-carousel::-webkit-scrollbar { height: 6px; }
+  .mockups-carousel::-webkit-scrollbar-thumb { background: rgba(220,60,130,0.4); border-radius: 3px; }
+  .mockups-carousel .item {
     flex: 0 0 240px;
     scroll-snap-align: center;
-    border-radius: 32px;
-    overflow: hidden;
-    box-shadow: 0 16px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.05);
-    background: #000;
-  }
-  .mockup img { display: block; width: 100%; height: auto; }
-
-  /* ─── Catalogue ─── */
-  .catalog { background: #110D0F; }
-  .covers {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 20px;
-    margin-top: 28px;
-  }
-  .cover {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    aspect-ratio: 2 / 3;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-    transition: transform 0.2s ease;
-  }
-  .cover:hover { transform: translateY(-3px); }
-  .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .cover .label {
-    position: absolute; left: 0; right: 0; bottom: 0;
-    padding: 12px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.85));
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    font-size: 14px;
-    color: #F5F1E8;
-  }
-
-  /* ─── Lead capture ─── */
-  .leadgen {
-    background: #0E0A0C;
     text-align: center;
-    padding-bottom: 100px;
   }
-  .leadgen .form {
-    max-width: 480px;
-    margin: 28px auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .leadgen input[type="email"] {
+  .mockups-carousel .phone {
     width: 100%;
+    aspect-ratio: 9 / 19.5;
+    background: #000;
+    border-radius: 28px;
+    padding: 6px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .mockups-carousel .phone img {
+    width: 100%; height: 100%;
+    border-radius: 22px;
+    object-fit: cover;
+    display: block;
+  }
+  .mockups-carousel .phone::after {
+    content: '';
+    position: absolute;
+    top: 14px; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 22px;
+    background: #000;
+    border-radius: 14px;
+    z-index: 2;
+  }
+  .mockups-carousel .label {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #DC3C82;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ─── Manifesto ─── */
+  .manifesto { background: #0E0A0C; padding: 100px 24px; }
+  .manifesto-card {
+    max-width: 720px; margin: 0 auto;
     background: #1A1416;
-    border: 1px solid #2A2326;
+    border-radius: 24px;
+    padding: 56px 48px;
+    border-left: 3px solid #DC3C82;
+    position: relative;
+  }
+  .manifesto-card .quote-mark {
+    position: absolute;
+    top: 24px; right: 36px;
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    color: rgba(220,60,130,0.2);
+    line-height: 1;
+  }
+  .manifesto-card p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-style: italic;
     color: #F5F1E8;
-    padding: 16px 20px;
-    border-radius: 999px;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    transition: border-color 0.15s ease;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    position: relative;
   }
-  .leadgen input[type="email"]:focus {
-    outline: none;
-    border-color: #DC3C82;
-  }
-  .leadgen button {
-    background: #DC3C82;
-    color: #FFFFFF;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 999px;
+  .manifesto-card .signature {
     font-family: 'Inter', sans-serif;
-    font-size: 15px;
+    font-style: normal;
+    font-size: 13px;
+    color: #C9C4BC;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  @media (max-width: 600px) { .manifesto-card { padding: 40px 28px; } }
+
+  /* ─── Final CTA ─── */
+  .final-cta {
+    background: linear-gradient(135deg, #6B0F2A 0%, #2A0F1A 100%);
+    text-align: center;
+    padding: 90px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(220,60,130,0.3) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4.5vw, 44px);
     font-weight: 700;
-    cursor: pointer;
-    transition: background 0.15s ease, transform 0.15s ease;
-    box-shadow: 0 6px 18px rgba(220,60,130,0.3);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    position: relative;
   }
-  .leadgen button:hover { background: #C2316F; transform: translateY(-1px); }
-  .leadgen button:disabled { background: #6B6368; cursor: not-allowed; transform: none; }
-  .leadgen .hint {
-    color: #6B6368;
-    font-size: 12px;
-    margin-top: 12px;
+  .final-cta h2 .italic { font-style: italic; }
+  .final-cta p {
+    color: rgba(245,241,232,0.85);
+    font-size: 16px;
+    max-width: 480px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+    position: relative;
   }
-  .leadgen .status { display: none; margin-top: 16px; padding: 14px 18px; border-radius: 8px; font-size: 14px; }
-  .leadgen .status.success { display: block; background: rgba(45,140,90,0.12); border: 1px solid rgba(45,140,90,0.4); color: #C0E8D0; }
-  .leadgen .status.error { display: block; background: rgba(220,60,130,0.12); border: 1px solid rgba(220,60,130,0.4); color: #F5B8C8; }
+  .final-cta .download-row { justify-content: center; position: relative; }
 
   /* ─── Footer ─── */
   footer {
     background: #0A0709;
-    border-top: 1px solid #1A1416;
-    padding: 40px 24px 32px;
-    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 56px 24px 32px;
   }
-  footer .links {
-    margin-bottom: 18px;
+  footer .row {
+    max-width: 1180px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 36px;
   }
-  footer .links a {
-    color: #C9C4BC;
-    margin: 0 14px;
+  @media (max-width: 720px) {
+    footer .row { grid-template-columns: 1fr; text-align: center; }
+  }
+  footer .col h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #F5F1E8;
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+  footer .col a { display: block; color: #C9C4BC; font-size: 13px; margin-bottom: 8px; }
+  footer .col a:hover { color: #F5F1E8; }
+  footer .brand-bottom {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px;
+  }
+  footer .brand-bottom img { width: 32px; height: 32px; border-radius: 7px; }
+  footer .brand-bottom span {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 16px;
+    color: #F5F1E8;
+  }
+  footer .tagline-foot {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #DC3C82;
     font-size: 13px;
-    font-weight: 500;
+    letter-spacing: 0.5px;
   }
   footer .copyright {
+    max-width: 1180px; margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 24px;
+    text-align: center;
     color: #6B6368;
     font-size: 12px;
   }
 
-  @media (max-width: 600px) {
-    section { padding: 60px 20px; }
-    .hero { padding: 60px 20px 40px; }
-    .topbar nav a { margin-left: 14px; font-size: 13px; }
-    .mockup { flex: 0 0 200px; }
+  /* ─── Modal lead capture (au clic sur télécharger avant publication stores) ─── */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 24px;
   }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: #1A1416;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+  }
+  .modal .close {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: transparent; border: none;
+    color: #C9C4BC;
+    width: 32px; height: 32px;
+    cursor: pointer; font-size: 22px;
+    border-radius: 50%;
+    transition: background 0.15s ease;
+  }
+  .modal .close:hover { background: rgba(255,255,255,0.06); color: #F5F1E8; }
+  .modal h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .modal h3 .italic { font-style: italic; color: #DC3C82; }
+  .modal p {
+    color: #C9C4BC;
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .modal form {
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .modal input[type="email"] {
+    background: #0E0A0C;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #F5F1E8;
+    padding: 14px 18px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    width: 100%;
+  }
+  .modal input[type="email"]:focus { outline: none; border-color: #DC3C82; }
+  .modal button[type="submit"] {
+    background: #DC3C82;
+    color: #FFFFFF;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-weight: 700; font-size: 14px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .modal button[type="submit"]:hover { background: #C2316F; }
+  .modal button[type="submit"]:disabled { background: #6B6368; cursor: not-allowed; }
+  .modal .status {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    display: none;
+  }
+  .modal .status.success { display: block; background: rgba(45,140,90,0.12); color: #C0E8D0; }
+  .modal .status.error { display: block; background: rgba(220,60,130,0.12); color: #F5B8C8; }
 </style>
 </head>
 <body>
@@ -308,9 +617,9 @@
       <span>Obsidian Read</span>
     </a>
     <nav>
-      <a href="#features">Features</a>
       <a href="#catalogue">Catalogue</a>
-      <a href="/contact">Contact</a>
+      <a href="#why">Pourquoi nous</a>
+      <a href="#" class="cta" onclick="openModal();return false;">Télécharger</a>
     </nav>
   </div>
 </div>
@@ -318,159 +627,268 @@
 <!-- ─── HERO ─── -->
 <section class="hero">
   <div class="container">
-    <img class="hero-logo" src="/favicon.png" alt="Obsidian Read" />
-    <h1>Obsidian Read</h1>
-    <div class="tagline">Romances qui tiennent éveillée.</div>
-    <p class="lede">
-      Une bibliothèque de romances françaises addictives, <strong>slow burn</strong>, <strong>dark academia</strong> et <strong>enemies-to-lovers</strong>, écrites pour celles qui ne lâchent un livre qu'au cliffhanger final.
-    </p>
-    <div class="badges">
-      <div class="badge"><span class="dot"></span>Bientôt sur App Store</div>
-      <div class="badge"><span class="dot"></span>Bientôt sur Google Play</div>
+    <div class="row">
+      <div class="hero-text">
+        <span class="hero-eyebrow">🌙 Romance app · FR</span>
+        <h1>Romances qui tiennent<br><span class="italic">éveillée</span>.</h1>
+        <p class="lede">
+          Une bibliothèque française de romances <strong>slow burn</strong>, <strong>dark academia</strong> et <strong>enemies-to-lovers</strong>, écrite pour celles qui ne lâchent un livre qu'au cliffhanger final.
+        </p>
+
+        <div class="download-row">
+          <button class="dl-btn" onclick="openModal()">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <span class="txt">
+              <small>Télécharger sur</small>
+              <strong>App Store</strong>
+            </span>
+          </button>
+          <button class="dl-btn" onclick="openModal()">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
+            <span class="txt">
+              <small>Disponible sur</small>
+              <strong>Google Play</strong>
+            </span>
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><strong>5</strong><span>Histoires complètes</span></div>
+          <div class="stat"><strong>+1 / sem</strong><span>Nouvelle histoire</span></div>
+          <div class="stat"><strong>+10</strong><span>Frissons offerts</span></div>
+        </div>
+      </div>
+
+      <div class="hero-mockup">
+        <div class="phone-mockup">
+          <div class="screen">
+            <img src="/mockups/mockup-accueil.jpg" alt="App Obsidian Read — page d'accueil" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ─── PITCH ─── -->
-<section class="pitch" id="features">
-  <div class="container">
-    <h2 class="section-title">Ce qui change la donne</h2>
-    <p class="section-subtitle">— Écrit pour le BookTok francophone —</p>
+<!-- ─── PROMO STRIP ─── -->
+<div class="promo-strip">
+  🎁 <strong>+10 Frissons offerts</strong> à l'inscription · 3 premiers chapitres gratuits par histoire · Aucune pub
+</div>
 
-    <div class="grid-3">
-      <div class="pitch-card">
-        <div class="icon">🌙</div>
+<!-- ─── CATALOGUE ─── -->
+<section class="feat catalog" id="catalogue">
+  <div class="container">
+    <div class="section-eyebrow">Notre catalogue</div>
+    <h2 class="section-title">Des histoires qui te <span class="italic">consomment</span>.</h2>
+    <p class="section-subtitle">
+      5 romans complets disponibles dès aujourd'hui. Une nouvelle histoire chaque semaine. Tous écrits en français, pas de traduction ratée.
+    </p>
+
+    <div class="covers-grid">
+      <div class="cover" onclick="openModal()">
+        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/a-charge-a-coeur.jpg?v=2" alt="À charge à cœur" />
+        <div class="overlay">
+          <div class="title">À charge à cœur</div>
+          <div class="trope">Enemies to Lovers · Prof-étudiante</div>
+        </div>
+      </div>
+      <div class="cover" onclick="openModal()">
+        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/hors-antenne.jpg?v=2" alt="Hors antenne" />
+        <div class="overlay">
+          <div class="title">Hors antenne</div>
+          <div class="trope">Slow burn · Hockey romance</div>
+        </div>
+      </div>
+      <div class="cover" onclick="openModal()">
+        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sous-le-masque.jpg?v=2" alt="Sous le masque" />
+        <div class="overlay">
+          <div class="title">Sous le masque</div>
+          <div class="trope">Forbidden · Musique classique</div>
+        </div>
+      </div>
+      <div class="cover" onclick="openModal()">
+        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/la-cible.jpg?v=2" alt="La Cible" />
+        <div class="overlay">
+          <div class="title">La Cible</div>
+          <div class="trope">Dark Romance · Hitman & Target</div>
+        </div>
+      </div>
+      <div class="cover" onclick="openModal()">
+        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/une-nouvelle-partition.jpg?v=3" alt="Une Nouvelle Partition" />
+        <div class="overlay">
+          <div class="title">Une Nouvelle Partition</div>
+          <div class="trope">Single-Dad · Slow burn musical</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── POURQUOI ─── -->
+<section class="feat why" id="why">
+  <div class="container">
+    <div class="section-eyebrow">Ce qui change la donne</div>
+    <h2 class="section-title">Écrit pour celles qui <span class="italic">ne ferment pas</span> le livre.</h2>
+    <p class="section-subtitle">
+      Une promesse simple : du slow burn pour de vrai, pensé en français, sans pub, sans algorithme qui te trahit.
+    </p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon-circle">🌙</div>
         <h3>Slow burn pour de VRAI</h3>
-        <p>On prend le temps. On tourne autour. On ne saute pas les étapes. Chaque regard pèse une tonne.</p>
+        <p>On prend le temps. Chaque regard, chaque silence pèse une tonne. On ne saute pas les étapes pour gagner du temps de lecture.</p>
       </div>
-      <div class="pitch-card">
-        <div class="icon">🖤</div>
+      <div class="why-card">
+        <div class="icon-circle">🇫🇷</div>
         <h3>Pensé en français</h3>
-        <p>Pas de traductions ratées de Wattpad EN. Chaque histoire est écrite dans notre tone, pour la francophonie.</p>
+        <p>Pas de traductions ratées de Wattpad EN. Chaque histoire est écrite avec notre tone, pour la francophonie.</p>
       </div>
-      <div class="pitch-card">
-        <div class="icon">🔥</div>
+      <div class="why-card">
+        <div class="icon-circle">🔥</div>
         <h3>Cliffhanger garanti</h3>
-        <p>Une scène-pivot par chapitre. Toujours. Tu refermes pour de bon à 4h du matin… ou jamais.</p>
+        <p>Une scène-pivot par chapitre. Toujours. Tu refermes le livre pour de bon à 4h du matin… ou jamais.</p>
       </div>
-      <div class="pitch-card">
-        <div class="icon">📖</div>
+      <div class="why-card">
+        <div class="icon-circle">📖</div>
         <h3>3 chapitres offerts</h3>
-        <p>Goûte la tension. Si t'es accro après le ch. 3, débloque la suite avec des Frissons ou prends l'illimité.</p>
+        <p>Goûte la tension. Si t'es accro après le ch. 3, débloque la suite avec des Frissons ou prends l'abonnement illimité.</p>
       </div>
-      <div class="pitch-card">
-        <div class="icon">🎁</div>
+      <div class="why-card">
+        <div class="icon-circle">🎁</div>
         <h3>+10 Frissons à l'inscription</h3>
         <p>Cadeau de bienvenue dès la création de ton compte. De quoi débloquer ton premier chapitre payant gratuitement.</p>
       </div>
-      <div class="pitch-card">
-        <div class="icon">🌑</div>
+      <div class="why-card">
+        <div class="icon-circle">🌑</div>
         <h3>Mode nuit by default</h3>
-        <p>Fond noir, texte crème. Doux pour les yeux à 3h du matin. Aucune pub. Jamais.</p>
+        <p>Fond noir, texte crème. Doux pour les yeux à 3h du matin. Aucune pub. Jamais. On respecte tes yeux et ton temps.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── MOCKUPS ─── -->
-<section class="mockups">
+<!-- ─── EXPÉRIENCE ─── -->
+<section class="feat experience">
   <div class="container">
-    <h2 class="section-title">Dans l'app</h2>
-    <p class="section-subtitle">— Tout ce qui te fera rester éveillée —</p>
-
-    <div class="mockups-grid">
-      <div class="mockup"><img src="/mockups/mockup-accueil.jpg" alt="Page d'accueil — catalogue de romances" loading="lazy" /></div>
-      <div class="mockup"><img src="/mockups/mockup-fiche.jpg" alt="Fiche livre — À charge à cœur" loading="lazy" /></div>
-      <div class="mockup"><img src="/mockups/mockup-lecture.jpg" alt="Mode lecture sépia" loading="lazy" /></div>
-      <div class="mockup"><img src="/mockups/mockup-frissons.jpg" alt="Onglet Frissons" loading="lazy" /></div>
-    </div>
-    <p style="text-align: center; color: #6B6368; font-size: 12px; margin-top: 20px;">
-      ↔ Swipe pour voir l'app en action
-    </p>
-  </div>
-</section>
-
-<!-- ─── CATALOGUE ─── -->
-<section class="catalog" id="catalogue">
-  <div class="container">
-    <h2 class="section-title">Le catalogue de la maison</h2>
-    <p class="section-subtitle">— 5 histoires complètes au lancement. 1 nouvelle chaque semaine. —</p>
-
-    <div class="covers">
-      <div class="cover">
-        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/a-charge-a-coeur.jpg?v=2" alt="À charge à cœur" />
-        <div class="label">À charge à cœur</div>
-      </div>
-      <div class="cover">
-        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/hors-antenne.jpg?v=2" alt="Hors antenne" />
-        <div class="label">Hors antenne</div>
-      </div>
-      <div class="cover">
-        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sous-le-masque.jpg?v=2" alt="Sous le masque" />
-        <div class="label">Sous le masque</div>
-      </div>
-      <div class="cover">
-        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/la-cible.jpg?v=2" alt="La Cible" />
-        <div class="label">La Cible</div>
-      </div>
-      <div class="cover">
-        <img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/une-nouvelle-partition.jpg?v=3" alt="Une Nouvelle Partition" />
-        <div class="label">Une Nouvelle Partition</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── LEAD CAPTURE ─── -->
-<section class="leadgen">
-  <div class="container">
-    <h2 class="section-title">Sois la première au courant</h2>
-    <p class="section-subtitle">— On te prévient dès que l'app est téléchargeable. Rien d'autre. —</p>
-
-    <form class="form" id="lead-form">
-      <input type="hidden" name="access_key" value="d0144669-c9e5-4540-8702-c9d43152ee20" />
-      <input type="hidden" name="subject" value="Nouvelle inscription pré-lancement Obsidian Read" />
-      <input type="hidden" name="from_name" value="Pré-lancement Obsidian Read" />
-
-      <!-- Honeypot anti-spam -->
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
-
-      <input
-        type="email"
-        name="email"
-        placeholder="ton.email@exemple.fr"
-        required
-        autocomplete="email"
-      />
-      <button type="submit" id="lead-submit">Préviens-moi à la sortie</button>
-    </form>
-
-    <p class="hint">
-      Aucun spam. On t'écrit une seule fois quand l'app est dispo sur les stores. Tu peux te désinscrire en un clic.
+    <div class="section-eyebrow">Dans l'app</div>
+    <h2 class="section-title">L'expérience que tu n'as <span class="italic">jamais eue</span>.</h2>
+    <p class="section-subtitle">
+      Une bibliothèque, des couvertures qui te grippent, un mode lecture pensé pour les nuits longues.
     </p>
 
-    <div class="status success" id="lead-success">
-      Merci 🩷 On t'écrit dès que l'app sort.
+    <div class="mockups-carousel">
+      <div class="item">
+        <div class="phone"><img src="/mockups/mockup-accueil.jpg" alt="Page d'accueil" /></div>
+        <div class="label">Accueil personnalisé</div>
+      </div>
+      <div class="item">
+        <div class="phone"><img src="/mockups/mockup-fiche.jpg" alt="Fiche livre" /></div>
+        <div class="label">Fiche d'une histoire</div>
+      </div>
+      <div class="item">
+        <div class="phone"><img src="/mockups/mockup-lecture.jpg" alt="Mode lecture" /></div>
+        <div class="label">Mode lecture sépia</div>
+      </div>
+      <div class="item">
+        <div class="phone"><img src="/mockups/mockup-frissons.jpg" alt="Frissons" /></div>
+        <div class="label">Tes Frissons, ta monnaie</div>
+      </div>
     </div>
-    <div class="status error" id="lead-error">
-      Une erreur est survenue. Réessaie ou écris-nous à <a href="/contact">contact@obsidianread.com</a>
-    </div>
+  </div>
+</section>
+
+<!-- ─── MANIFESTO ─── -->
+<section class="manifesto">
+  <div class="manifesto-card">
+    <div class="quote-mark">"</div>
+    <p>
+      J'ai construit Obsidian Read parce que toutes les apps de romance francophones traduisent des fanfics anglaises avec des phrases ratées. Mes lectrices méritent mieux que ça : du français pensé pour le français, des cliffhangers qui font mal, des slow burn qui prennent leur temps.
+    </p>
+    <p>
+      Ici, on ne saute pas les étapes. On les déguste.
+    </p>
+    <div class="signature">— mrs.julief, fondatrice</div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta">
+  <h2>Prête à <span class="italic">tomber</span> ?</h2>
+  <p>Télécharge Obsidian Read et reçois <strong>10 Frissons</strong> dès ton inscription. Bonne nuit blanche.</p>
+  <div class="download-row">
+    <button class="dl-btn" onclick="openModal()">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+      <span class="txt"><small>Télécharger sur</small><strong>App Store</strong></span>
+    </button>
+    <button class="dl-btn" onclick="openModal()">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
+      <span class="txt"><small>Disponible sur</small><strong>Google Play</strong></span>
+    </button>
   </div>
 </section>
 
 <!-- ─── FOOTER ─── -->
 <footer>
-  <div class="links">
-    <a href="/contact">Contact</a>
-    <a href="/terms">Conditions d'utilisation</a>
-    <a href="/privacy">Confidentialité</a>
+  <div class="row">
+    <div class="col">
+      <div class="brand-bottom">
+        <img src="/favicon.png" alt="Obsidian Read" />
+        <span>Obsidian Read</span>
+      </div>
+      <div class="tagline-foot">Romances qui tiennent éveillée.</div>
+    </div>
+    <div class="col">
+      <h4>Navigation</h4>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#why">Pourquoi nous</a>
+      <a href="/contact">Nous écrire</a>
+    </div>
+    <div class="col">
+      <h4>Légal</h4>
+      <a href="/terms">Conditions générales</a>
+      <a href="/privacy">Politique de confidentialité</a>
+    </div>
   </div>
   <div class="copyright">
-    © 2026 Obsidian Read · Romances qui tiennent éveillée.
+    © 2026 Obsidian Read · Une marque francophone de romance · Tous droits réservés
   </div>
 </footer>
 
+<!-- ─── MODAL CAPTURE (déclenché par clic sur "Télécharger") ─── -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOnBackdrop(event)">
+  <div class="modal" id="modal">
+    <button class="close" onclick="closeModal()" aria-label="Fermer">×</button>
+    <h3>Sortie <span class="italic">imminente</span> 🌙</h3>
+    <p>L'app arrive très bientôt sur App Store et Google Play. Laisse-moi ton email, je te préviens dès qu'elle est téléchargeable.</p>
+
+    <form id="lead-form">
+      <input type="hidden" name="access_key" value="d0144669-c9e5-4540-8702-c9d43152ee20" />
+      <input type="hidden" name="subject" value="Nouvelle inscription pré-lancement Obsidian Read" />
+      <input type="hidden" name="from_name" value="Pré-lancement Obsidian Read" />
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+      <input type="email" name="email" placeholder="ton.email@exemple.fr" required autocomplete="email" />
+      <button type="submit" id="lead-submit">Préviens-moi à la sortie</button>
+    </form>
+
+    <div class="status success" id="lead-success">Merci 🩷 On t'écrit dès que l'app sort.</div>
+    <div class="status error" id="lead-error">Une erreur est survenue. Réessaie ou écris à <a href="/contact">contact@obsidianread.com</a></div>
+  </div>
+</div>
+
 <script>
+  function openModal() {
+    document.getElementById('modal-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  function closeModalOnBackdrop(e) {
+    if (e.target.id === 'modal-overlay') closeModal();
+  }
+
   const form = document.getElementById('lead-form');
   const successBox = document.getElementById('lead-success');
   const errorBox = document.getElementById('lead-error');
