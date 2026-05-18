@@ -3,7 +3,7 @@
     "details": [
       {
         "appIDs": [
-          "TEAMID_TO_REPLACE.com.obsidianread.app"
+          "6J9827WH77.com.obsidianread.app"
         ],
         "components": [
           { "/": "/book/*", "comment": "Fiche livre → app /book/[id]" },
@@ -15,6 +15,6 @@
     ]
   },
   "webcredentials": {
-    "apps": ["TEAMID_TO_REPLACE.com.obsidianread.app"]
+    "apps": ["6J9827WH77.com.obsidianread.app"]
   }
 }
