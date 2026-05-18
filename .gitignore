@@ -1,0 +1,9 @@
+# Doc interne (instructions Claude pour ce repo)
+CLAUDE.md
+
+# macOS
+.DS_Store
+
+# Build / cache
+node_modules/
+.vercel/

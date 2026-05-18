@@ -1,0 +1,20 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "TEAMID_TO_REPLACE.com.obsidianread.app"
+        ],
+        "components": [
+          { "/": "/book/*", "comment": "Fiche livre → app /book/[id]" },
+          { "/": "/reader/*", "comment": "Lecteur chapitre → app /reader/[bookId]/[chapter]" },
+          { "/": "/category/*", "comment": "Catégorie → app /category/[id]" },
+          { "/": "/", "comment": "Accueil → app (tabs)" }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["TEAMID_TO_REPLACE.com.obsidianread.app"]
+  }
+}
