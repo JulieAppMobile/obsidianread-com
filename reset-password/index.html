@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nouveau mot de passe — Obsidian Read</title>
+<meta name="description" content="Définir un nouveau mot de passe pour ton compte Obsidian Read." />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #0E0A0C;
+    color: #F5F1E8;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top {
+    padding: 18px 24px;
+    border-bottom: 1px solid #2A2326;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .top a { color: #C9C4BC; font-size: 13px; text-decoration: none; }
+  .top a:hover { color: #F5F1E8; }
+  .top .brand { color: #F5F1E8; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; }
+
+  .container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+  }
+
+  .card {
+    max-width: 440px;
+    width: 100%;
+  }
+
+  .lock-circle {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: rgba(220, 60, 130, 0.15);
+    border: 2px solid #DC3C82;
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lock-icon {
+    width: 36px;
+    height: 36px;
+    stroke: #DC3C82;
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #DC3C82;
+    text-align: center;
+    margin-bottom: 36px;
+    letter-spacing: 0.3px;
+  }
+
+  .lede {
+    color: #C9C4BC;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  label {
+    display: block;
+    color: #C9C4BC;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    margin-top: 18px;
+    text-transform: uppercase;
+  }
+
+  input[type="password"] {
+    width: 100%;
+    background: #1A1416;
+    border: 1px solid #2A2326;
+    border-radius: 12px;
+    padding: 14px 16px;
+    color: #F5F1E8;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  input[type="password"]:focus { border-color: #DC3C82; }
+
+  .help {
+    color: #6B6368;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  .cta {
+    display: block;
+    width: 100%;
+    background: #DC3C82;
+    color: #FFFFFF;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-top: 28px;
+    transition: background 0.15s ease, opacity 0.15s ease;
+  }
+  .cta:hover:not(:disabled) { background: #C2316F; }
+  .cta:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .error {
+    color: #F5485E;
+    font-size: 13px;
+    margin-top: 14px;
+    text-align: center;
+    background: rgba(245, 72, 94, 0.1);
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(245, 72, 94, 0.3);
+  }
+
+  .success {
+    text-align: center;
+  }
+
+  .check-icon {
+    width: 38px;
+    height: 38px;
+    stroke: #4ADE80;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .check-circle {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: rgba(74, 222, 128, 0.15);
+    border: 2px solid #4ADE80;
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .secondary {
+    display: block;
+    margin-top: 18px;
+    color: #C9C4BC;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: center;
+  }
+  .secondary:hover { color: #F5F1E8; }
+
+  footer {
+    padding: 24px;
+    text-align: center;
+    color: #6B6368;
+    font-size: 12px;
+    border-top: 1px solid #2A2326;
+  }
+  footer a { color: #6B6368; }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <span class="brand">Obsidian Read</span>
+  <span style="flex: 1"></span>
+  <a href="/">Accueil</a>
+</div>
+
+<div class="container">
+  <div class="card" id="form-card">
+    <div class="lock-circle">
+      <svg class="lock-icon" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      </svg>
+    </div>
+
+    <h1>Nouveau mot de passe</h1>
+    <p class="tagline">Romances qui tiennent éveillée.</p>
+    <p class="lede">Choisis un nouveau mot de passe pour ton compte Obsidian Read.</p>
+
+    <form id="reset-form">
+      <label for="password">Nouveau mot de passe</label>
+      <input type="password" id="password" autocomplete="new-password" minlength="6" required placeholder="Au moins 6 caractères" />
+
+      <label for="password-confirm">Confirme le mot de passe</label>
+      <input type="password" id="password-confirm" autocomplete="new-password" minlength="6" required placeholder="Re-tape-le pour confirmer" />
+
+      <div id="error-box" class="error" style="display: none;"></div>
+
+      <button type="submit" class="cta" id="submit-btn">Définir le nouveau mot de passe</button>
+    </form>
+  </div>
+
+  <div class="card success" id="success-card" style="display: none;">
+    <div class="check-circle">
+      <svg class="check-icon" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h1>Mot de passe modifié 🩷</h1>
+    <p class="tagline">Romances qui tiennent éveillée.</p>
+    <p class="lede">Tu peux maintenant te reconnecter avec ton nouveau mot de passe dans l'app.</p>
+
+    <a href="obsidianread://" class="cta" style="text-decoration: none;">Ouvrir l'app Obsidian Read</a>
+    <a href="/" class="secondary">Ou retourner à l'accueil du site</a>
+  </div>
+</div>
+
+<footer>
+  © Obsidian Read · <a href="/contact">Nous écrire</a> · <a href="/privacy">Confidentialité</a> · <a href="/terms">CGU</a>
+</footer>
+
+<script type="module">
+  // Charge le SDK Supabase depuis CDN (pas de build step)
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+  const SUPABASE_URL = 'https://wfujvnduzrsqufgbhhmn.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_0GpOtTfDetZmTfJd-keM-A_mNGb-LAQ';
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: { autoRefreshToken: false, persistSession: false, detectSessionInUrl: true },
+  });
+
+  const form = document.getElementById('reset-form');
+  const errorBox = document.getElementById('error-box');
+  const submitBtn = document.getElementById('submit-btn');
+  const formCard = document.getElementById('form-card');
+  const successCard = document.getElementById('success-card');
+
+  function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.style.display = 'block';
+  }
+
+  function hideError() {
+    errorBox.style.display = 'none';
+  }
+
+  // Au chargement, on vérifie que le token est bien présent dans l'URL hash
+  // Supabase détecte automatiquement le token via detectSessionInUrl: true
+  (async () => {
+    // Le hash contient #access_token=xxx&refresh_token=xxx&type=recovery
+    if (!window.location.hash || !window.location.hash.includes('access_token')) {
+      showError("Lien invalide ou expiré. Demande un nouveau lien depuis l'app.");
+      submitBtn.disabled = true;
+      return;
+    }
+    // On attend que supabase parse l'URL (geste asynchrone)
+    await new Promise(r => setTimeout(r, 200));
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+      showError("Lien invalide ou expiré. Demande un nouveau lien depuis l'app.");
+      submitBtn.disabled = true;
+    }
+  })();
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    hideError();
+
+    const password = document.getElementById('password').value;
+    const confirm = document.getElementById('password-confirm').value;
+
+    if (password.length < 6) {
+      showError("Le mot de passe doit faire au moins 6 caractères.");
+      return;
+    }
+    if (password !== confirm) {
+      showError("Les deux mots de passe ne correspondent pas.");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enregistrement…";
+
+    try {
+      const { error } = await supabase.auth.updateUser({ password });
+      if (error) {
+        showError(error.message || "Impossible de modifier le mot de passe. Réessaie ou demande un nouveau lien.");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Définir le nouveau mot de passe";
+        return;
+      }
+
+      // Succès → affiche l'écran de succès
+      formCard.style.display = 'none';
+      successCard.style.display = 'block';
+
+      // Nettoie l'URL (sécurité : on ne veut pas garder le token dans l'historique)
+      window.history.replaceState(null, '', window.location.pathname);
+    } catch (err) {
+      showError("Impossible de modifier le mot de passe. Réessaie ou demande un nouveau lien.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Définir le nouveau mot de passe";
+    }
+  });
+</script>
+
+</body>
+</html>
