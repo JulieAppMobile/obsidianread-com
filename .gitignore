@@ -7,3 +7,13 @@ CLAUDE.md
 # Build / cache
 node_modules/
 .vercel/
+
+# === Sensibles RevenueCat / Apple (NE JAMAIS COMMITER) ===
+cle-api-revenuecat/
+*.p8
+*.p12
+*.pem
+*.key
+secrets/
+.env
+.env.local
