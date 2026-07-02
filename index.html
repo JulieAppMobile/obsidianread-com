@@ -897,8 +897,9 @@
       <button type="submit" id="lead-submit">Préviens-moi à la sortie</button>
     </form>
 
-    <div class="status success" id="lead-success">Merci 🩷 On t'écrit dès que l'app sort.</div>
-    <div class="status error" id="lead-error">Une erreur est survenue. Réessaie ou écris à <a href="/contact" style="color:#F5B8C8;text-decoration:underline">contact@obsidianread.com</a></div>
+    <!-- Cachés par défaut : le JS (submit) affiche le bon message seulement après l'envoi. -->
+    <div class="status success" id="lead-success" style="display:none">Merci 🩷 On t'écrit dès que l'app sort.</div>
+    <div class="status error" id="lead-error" style="display:none">Une erreur est survenue. Réessaie ou écris à <a href="/contact" style="color:#F5B8C8;text-decoration:underline">contact@obsidianread.com</a></div>
   </div>
 </div>
 
