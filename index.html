@@ -172,6 +172,7 @@
     border-radius: 14px;
     border: none;
     cursor: pointer;
+    text-decoration: none;
     font-family: 'Inter', sans-serif;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     box-shadow: 0 8px 22px rgba(0,0,0,0.4);
@@ -563,42 +564,15 @@
     margin-bottom: 26px;
     line-height: 1.6;
   }
-  .modal form {
-    display: flex; flex-direction: column; gap: 12px;
+  /* La modale sert de sélecteur de store quand on n'a pas pu détecter
+     la plateforme (desktop) : les 2 badges empilés. */
+  .modal .download-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 0;
   }
-  .modal input[type="email"] {
-    background: #0E0A0C;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: #F5F1E8;
-    padding: 14px 18px;
-    border-radius: 999px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    width: 100%;
-    text-align: center;
-  }
-  .modal input[type="email"]:focus { outline: none; border-color: #DC3C82; }
-  .modal button[type="submit"] {
-    background: #DC3C82;
-    color: #FFFFFF;
-    border: none;
-    padding: 14px 24px;
-    border-radius: 999px;
-    font-weight: 700; font-size: 14px;
-    cursor: pointer;
-    transition: background 0.15s ease;
-  }
-  .modal button[type="submit"]:hover { background: #C2316F; }
-  .modal button[type="submit"]:disabled { background: #6B6368; cursor: not-allowed; }
-  .modal .status {
-    margin-top: 16px;
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-size: 13px;
-    display: none;
-  }
-  .modal .status.success { display: block; background: rgba(45,140,90,0.15); color: #C0E8D0; }
-  .modal .status.error { display: block; background: rgba(220,60,130,0.12); color: #F5B8C8; }
+  .modal .dl-btn { justify-content: center; }
 </style>
   <meta name="facebook-domain-verification" content="xnh7aa6yw7c30az1rn6q7ctvkrt1t9" />
   <!-- Meta Pixel Code -->
@@ -631,7 +605,7 @@
     <nav>
       <a href="#tropes">Tropes</a>
       <a href="#histoires">Histoires</a>
-      <a href="#" class="cta" onclick="openModal();return false;">Télécharger l'app</a>
+      <a href="#" class="cta" onclick="smartDownload();return false;">Télécharger l'app</a>
     </nav>
   </div>
 </div>
@@ -645,14 +619,14 @@
       Une bibliothèque française de romances slow burn, dark academia et enemies-to-lovers. Écrite pour celles qui ne referment un livre qu'au cliffhanger final.
     </p>
     <div class="download-row">
-      <button class="dl-btn" onclick="openModal()" aria-label="Télécharger sur l'App Store">
+      <a class="dl-btn" href="https://apps.apple.com/fr/app/obsidian-read/id6770984110" target="_blank" rel="noopener" onclick="trackDownload('ios')" aria-label="Télécharger Obsidian Read sur l'App Store">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
         <span class="txt"><small>Télécharger sur</small><strong>App Store</strong></span>
-      </button>
-      <button class="dl-btn" onclick="openModal()" aria-label="Disponible sur Google Play">
+      </a>
+      <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.obsidianread.app" target="_blank" rel="noopener" onclick="trackDownload('android')" aria-label="Télécharger Obsidian Read sur Google Play">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
         <span class="txt"><small>Disponible sur</small><strong>Google Play</strong></span>
-      </button>
+      </a>
     </div>
     <div class="cta-sub">
       <strong>+10 Frissons offerts</strong> à l'inscription · Premiers chapitres gratuits
@@ -669,35 +643,35 @@
     </div>
 
     <div class="cat-grid">
-      <div class="cat-card" onclick="openModal()">
+      <div class="cat-card" onclick="smartDownload()">
         <div class="emoji">🌙</div>
         <div class="name">Slow Burn</div>
       </div>
-      <div class="cat-card" onclick="openModal()">
+      <div class="cat-card" onclick="smartDownload()">
         <div class="emoji">🖤</div>
         <div class="name">Dark Romance</div>
       </div>
-      <div class="cat-card" onclick="openModal()">
+      <div class="cat-card" onclick="smartDownload()">
         <div class="emoji">⚔️</div>
         <div class="name">Enemies to Lovers</div>
       </div>
-      <div class="cat-card" onclick="openModal()">
+      <div class="cat-card" onclick="smartDownload()">
         <div class="emoji">🚫</div>
         <div class="name">Forbidden</div>
       </div>
-      <div class="cat-card" onclick="openModal()">
+      <div class="cat-card" onclick="smartDownload()">
         <div class="emoji">🏒</div>
         <div class="name">Hockey Romance</div>
       </div>
-      <div class="cat-card" onclick="openModal()">
+      <div class="cat-card" onclick="smartDownload()">
         <div class="emoji">🎓</div>
         <div class="name">Prof-étudiante</div>
       </div>
-      <div class="cat-card" onclick="openModal()">
+      <div class="cat-card" onclick="smartDownload()">
         <div class="emoji">👨‍👧</div>
         <div class="name">Single Dad</div>
       </div>
-      <div class="cat-card" onclick="openModal()">
+      <div class="cat-card" onclick="smartDownload()">
         <div class="emoji">🎯</div>
         <div class="name">Hitman & Target</div>
       </div>
@@ -710,30 +684,30 @@
   <div class="container">
     <div class="trope-header">
       <h2><span class="italic">Slow burn</span> qui te dévore</h2>
-      <a href="#" class="view-all" onclick="openModal();return false;">Voir tout ›</a>
+      <a href="#" class="view-all" onclick="smartDownload();return false;">Voir tout ›</a>
     </div>
     <div class="book-carousel">
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/noublie-pas-mon-prenom.jpg?v=1" alt="N'oublie pas mon prénom" loading="lazy" /></div>
         <div class="title">N'oublie pas mon prénom</div>
         <div class="author">Obsidian Read</div>
       </div>
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/pour-de-faux.jpg?v=1" alt="Pour de faux" loading="lazy" /></div>
         <div class="title">Pour de faux</div>
         <div class="author">Obsidian Read</div>
       </div>
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/a-charge-a-coeur.jpg?v=2" alt="À charge à cœur" loading="lazy" /></div>
         <div class="title">À charge à cœur</div>
         <div class="author">Obsidian Read</div>
       </div>
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/une-nouvelle-partition.jpg?v=3" alt="Une Nouvelle Partition" loading="lazy" /></div>
         <div class="title">Une Nouvelle Partition</div>
         <div class="author">Obsidian Read</div>
       </div>
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/hors-antenne.jpg?v=2" alt="Hors antenne" loading="lazy" /></div>
         <div class="title">Hors antenne</div>
         <div class="author">Obsidian Read</div>
@@ -746,20 +720,20 @@
   <div class="container">
     <div class="trope-header">
       <h2>Dark romance & <span class="italic">tension extrême</span></h2>
-      <a href="#" class="view-all" onclick="openModal();return false;">Voir tout ›</a>
+      <a href="#" class="view-all" onclick="smartDownload();return false;">Voir tout ›</a>
     </div>
     <div class="book-carousel">
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sang-et-serment.jpg?v=1" alt="Sang et Serment" loading="lazy" /></div>
         <div class="title">Sang et Serment</div>
         <div class="author">Obsidian Read</div>
       </div>
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/la-cible.jpg?v=2" alt="La Cible" loading="lazy" /></div>
         <div class="title">La Cible</div>
         <div class="author">Obsidian Read</div>
       </div>
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sous-le-masque.jpg?v=2" alt="Sous le masque" loading="lazy" /></div>
         <div class="title">Sous le masque</div>
         <div class="author">Obsidian Read</div>
@@ -772,20 +746,20 @@
   <div class="container">
     <div class="trope-header">
       <h2>Enemies to <span class="italic">lovers</span></h2>
-      <a href="#" class="view-all" onclick="openModal();return false;">Voir tout ›</a>
+      <a href="#" class="view-all" onclick="smartDownload();return false;">Voir tout ›</a>
     </div>
     <div class="book-carousel">
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sang-et-serment.jpg?v=1" alt="Sang et Serment" loading="lazy" /></div>
         <div class="title">Sang et Serment</div>
         <div class="author">Obsidian Read</div>
       </div>
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/a-charge-a-coeur.jpg?v=2" alt="À charge à cœur" loading="lazy" /></div>
         <div class="title">À charge à cœur</div>
         <div class="author">Obsidian Read</div>
       </div>
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/hors-antenne.jpg?v=2" alt="Hors antenne" loading="lazy" /></div>
         <div class="title">Hors antenne</div>
         <div class="author">Obsidian Read</div>
@@ -798,15 +772,15 @@
   <div class="container">
     <div class="trope-header">
       <h2>Forbidden & <span class="italic">slow burn musical</span></h2>
-      <a href="#" class="view-all" onclick="openModal();return false;">Voir tout ›</a>
+      <a href="#" class="view-all" onclick="smartDownload();return false;">Voir tout ›</a>
     </div>
     <div class="book-carousel">
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sous-le-masque.jpg?v=2" alt="Sous le masque" loading="lazy" /></div>
         <div class="title">Sous le masque</div>
         <div class="author">Obsidian Read</div>
       </div>
-      <div class="book-item" onclick="openModal()">
+      <div class="book-item" onclick="smartDownload()">
         <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/une-nouvelle-partition.jpg?v=3" alt="Une Nouvelle Partition" loading="lazy" /></div>
         <div class="title">Une Nouvelle Partition</div>
         <div class="author">Obsidian Read</div>
@@ -834,14 +808,14 @@
   <h2>Prête à <span class="italic">tomber</span> ?</h2>
   <p>Télécharge Obsidian Read et reçois 10 Frissons dès ton inscription. Bonne nuit blanche.</p>
   <div class="download-row final">
-    <button class="dl-btn" onclick="openModal()" aria-label="Télécharger sur l'App Store">
+    <a class="dl-btn" href="https://apps.apple.com/fr/app/obsidian-read/id6770984110" target="_blank" rel="noopener" onclick="trackDownload('ios')" aria-label="Télécharger Obsidian Read sur l'App Store">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
       <span class="txt"><small>Télécharger sur</small><strong>App Store</strong></span>
-    </button>
-    <button class="dl-btn" onclick="openModal()" aria-label="Disponible sur Google Play">
+    </a>
+    <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.obsidianread.app" target="_blank" rel="noopener" onclick="trackDownload('android')" aria-label="Télécharger Obsidian Read sur Google Play">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
       <span class="txt"><small>Disponible sur</small><strong>Google Play</strong></span>
-    </button>
+    </a>
   </div>
 </section>
 
@@ -880,30 +854,61 @@
   </div>
 </footer>
 
-<!-- ─── MODAL CAPTURE ─── -->
+<!-- ─── MODAL : choix du store ───
+     Ne s'ouvre que si on n'a pas pu détecter la plateforme (ordinateur).
+     Sur iPhone / Android, smartDownload() envoie direct au bon store.
+-->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModalOnBackdrop(event)">
   <div class="modal" id="modal">
     <button class="close" onclick="closeModal()" aria-label="Fermer">×</button>
     <div class="moon">🌙</div>
-    <h3>Sortie <span class="italic">imminente</span></h3>
-    <p>L'app arrive très bientôt sur App Store et Google Play. Laisse-moi ton email, je te préviens dès qu'elle est téléchargeable.</p>
+    <h3>Télécharge <span class="italic">Obsidian Read</span></h3>
+    <p>Disponible sur iPhone et Android. +10 Frissons offerts à l'inscription.</p>
 
-    <form id="lead-form">
-      <input type="hidden" name="access_key" value="d0144669-c9e5-4540-8702-c9d43152ee20" />
-      <input type="hidden" name="subject" value="Nouvelle inscription pré-lancement Obsidian Read" />
-      <input type="hidden" name="from_name" value="Pré-lancement Obsidian Read" />
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
-      <input type="email" name="email" placeholder="ton.email@exemple.fr" required autocomplete="email" />
-      <button type="submit" id="lead-submit">Préviens-moi à la sortie</button>
-    </form>
-
-    <!-- Cachés par défaut : le JS (submit) affiche le bon message seulement après l'envoi. -->
-    <div class="status success" id="lead-success" style="display:none">Merci 🩷 On t'écrit dès que l'app sort.</div>
-    <div class="status error" id="lead-error" style="display:none">Une erreur est survenue. Réessaie ou écris à <a href="/contact" style="color:#F5B8C8;text-decoration:underline">contact@obsidianread.com</a></div>
+    <div class="download-row">
+      <a class="dl-btn" href="https://apps.apple.com/fr/app/obsidian-read/id6770984110" target="_blank" rel="noopener" onclick="trackDownload('ios')" aria-label="Télécharger Obsidian Read sur l'App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        <span class="txt"><small>Télécharger sur</small><strong>App Store</strong></span>
+      </a>
+      <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.obsidianread.app" target="_blank" rel="noopener" onclick="trackDownload('android')" aria-label="Télécharger Obsidian Read sur Google Play">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
+        <span class="txt"><small>Disponible sur</small><strong>Google Play</strong></span>
+      </a>
+    </div>
   </div>
 </div>
 
 <script>
+  /* ─── Liens stores officiels ───
+     App Store : app id App Store Connect 6770984110
+     Google Play : package com.obsidianread.app
+     Les badges sont de vrais <a href> : ils fonctionnent même si ce script
+     ne se charge pas. Le JS ne sert qu'aux CTA génériques (menu, cartes).
+  */
+  const STORE_IOS = 'https://apps.apple.com/fr/app/obsidian-read/id6770984110';
+  const STORE_ANDROID = 'https://play.google.com/store/apps/details?id=com.obsidianread.app';
+
+  // Remonte le clic à Meta pour mesurer les pubs (ne doit jamais bloquer le lien).
+  function trackDownload(platform) {
+    try {
+      if (window.fbq) fbq('trackCustom', 'DownloadClick', { platform: platform });
+    } catch (e) {}
+  }
+
+  // CTA génériques : on envoie vers le store de l'appareil.
+  // Sur ordinateur, on ne devine pas → on affiche le choix des deux stores.
+  function smartDownload() {
+    const ua = navigator.userAgent || '';
+    // iPadOS récent se déclare "Macintosh" → on le repère à l'écran tactile.
+    const isIOS = /iPad|iPhone|iPod/.test(ua)
+      || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    const isAndroid = /Android/.test(ua);
+
+    if (isIOS) { trackDownload('ios'); window.location.href = STORE_IOS; return; }
+    if (isAndroid) { trackDownload('android'); window.location.href = STORE_ANDROID; return; }
+    openModal();
+  }
+
   function openModal() {
     document.getElementById('modal-overlay').classList.add('show');
     document.body.style.overflow = 'hidden';
@@ -915,34 +920,8 @@
   function closeModalOnBackdrop(e) {
     if (e.target.id === 'modal-overlay') closeModal();
   }
-
-  const form = document.getElementById('lead-form');
-  const successBox = document.getElementById('lead-success');
-  const errorBox = document.getElementById('lead-error');
-  const submitBtn = document.getElementById('lead-submit');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    successBox.style.display = 'none';
-    errorBox.style.display = 'none';
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Envoi…';
-
-    try {
-      const data = new FormData(form);
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
-      const json = await res.json();
-      if (json.success) {
-        form.style.display = 'none';
-        successBox.style.display = 'block';
-      } else {
-        throw new Error(json.message || 'Erreur inconnue');
-      }
-    } catch (err) {
-      errorBox.style.display = 'block';
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Préviens-moi à la sortie';
-    }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
   });
 </script>
 
