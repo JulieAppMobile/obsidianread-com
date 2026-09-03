@@ -1,14 +1,11 @@
 [
   {
-    "relation": [
-      "delegate_permission/common.handle_all_urls"
-    ],
+    "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
       "package_name": "com.obsidianread.app",
-      "sha256_cert_fingerprints": [
-        "SHA256_TO_REPLACE_AFTER_GOOGLE_PLAY_SIGNING"
-      ]
+      "sha256_cert_fingerprints":
+        ["53:13:37:C7:5B:4F:66:AA:9A:8F:15:0E:E6:A7:D8:4D:CE:D6:79:EC:F4:37:D4:CF:2A:C6:BD:2D:D3:7A:EB:B7"]
     }
   }
 ]
