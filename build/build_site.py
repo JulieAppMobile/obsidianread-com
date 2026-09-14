@@ -389,7 +389,7 @@ def page_index():
   <div class="wrap abo-row">
     <div>
       <div class="abo-title">Tout le catalogue avec un seul abonnement.</div>
-      <div class="abo-sub">1,99 € la semaine ou 49,90 € l'année. Résiliable à tout moment depuis ton téléphone.</div>
+      <div class="abo-sub">1,99 € la semaine ou 49,99 € l'année. Résiliable à tout moment depuis ton téléphone.</div>
     </div>
     <a href="#" class="btn" onclick="smartDownload();return false;">Télécharger l'application</a>
   </div>
@@ -516,7 +516,7 @@ def page_abonnement():
 <section class="offers">
   <div class="wrap">
     <div class="offers-grid">
-      {offer('Annuel', '49,90 €', 'par an', 'Soit 4,16 € par mois', True)}
+      {offer('Annuel', '49,99 €', 'par an', 'Soit 4,17 € par mois', True)}
       {offer('Hebdomadaire', '1,99 €', 'par semaine', "Pour essayer sans t'engager")}
     </div>
     <div class="faqs">
@@ -528,7 +528,7 @@ def page_abonnement():
 </section>
 ''' + final_cta() + footer()
     return head('Abonnement — Obsidian Read',
-                "Un seul abonnement pour tout le catalogue Obsidian Read : 1,99 € la semaine ou 49,90 € l'année, résiliable à tout moment.",
+                "Un seul abonnement pour tout le catalogue Obsidian Read : 1,99 € la semaine ou 49,99 € l'année, résiliable à tout moment.",
                 '/abonnement/') + body
 
 
