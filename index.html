@@ -3,927 +3,296 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Obsidian Read — Romances qui tiennent éveillée</title>
-<meta name="description" content="Obsidian Read — Romances slow burn, dark academia, enemies-to-lovers. App de lecture pensée en français. Premiers chapitres offerts." />
-<meta name="theme-color" content="#0E0A0C" />
-<!-- ─── Smart App Banner (iOS Safari) ───
-     Safari mobile affiche automatiquement un bandeau "Ouvrir dans Obsidian Read"
-     si l'app est installée, ou un bouton "Voir" qui mène à l'App Store sinon.
-     L'app-id est à remplacer par le vrai numérique fourni par App Store Connect
-     APRÈS création de l'app dans App Store Connect. Placeholder pour l'instant.
--->
+<title>Obsidian Read — La romance a son application.</title>
+<meta name="description" content="Choisis ta prochaine romance sur Obsidian Read. Des romans écrits en français, à lire sur ton téléphone, avec un seul abonnement." />
+<link rel="canonical" href="https://obsidianread.com/" />
+<meta name="theme-color" content="#0A0A0A" />
 <meta name="apple-itunes-app" content="app-id=6770984110" />
-<!-- Schemes deep link pour ouvrir l'app si installée -->
 <meta property="al:ios:url" content="obsidianread://" />
 <meta property="al:ios:app_store_id" content="6770984110" />
 <meta property="al:ios:app_name" content="Obsidian Read" />
 <meta property="al:android:url" content="obsidianread://" />
 <meta property="al:android:package" content="com.obsidianread.app" />
 <meta property="al:android:app_name" content="Obsidian Read" />
-<meta property="og:title" content="Obsidian Read — Romances qui tiennent éveillée" />
-<meta property="og:description" content="Romances slow burn, dark academia, enemies-to-lovers. App de lecture pensée en français." />
+<meta property="og:title" content="Obsidian Read — La romance a son application." />
+<meta property="og:description" content="Choisis ta prochaine romance sur Obsidian Read. Des romans écrits en français, à lire sur ton téléphone, avec un seul abonnement." />
 <meta property="og:image" content="https://obsidianread.com/favicon.png" />
+<meta property="og:url" content="https://obsidianread.com/" />
 <meta property="og:type" content="website" />
+<meta property="og:locale" content="fr_FR" />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: #0E0A0C;
-    color: #F5F1E8;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  a { color: inherit; text-decoration: none; transition: color 0.15s ease, opacity 0.15s ease; }
-  img { display: block; max-width: 100%; }
-  button { font-family: inherit; cursor: pointer; }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=2" />
 
-  .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
-
-  /* ─── TOPBAR ─── */
-  .topbar {
-    position: fixed; top: 0; left: 0; right: 0;
-    background: rgba(14, 10, 12, 0.88);
-    backdrop-filter: blur(18px) saturate(180%);
-    -webkit-backdrop-filter: blur(18px) saturate(180%);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    z-index: 100;
-    padding: 14px 0;
-  }
-  .topbar .row {
-    max-width: 1240px; margin: 0 auto; padding: 0 24px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .topbar .brand {
-    display: flex; align-items: center; gap: 10px;
-    color: #F5F1E8; font-family: 'Playfair Display', serif;
-    font-weight: 700; font-size: 18px;
-  }
-  .topbar .brand img { width: 32px; height: 32px; border-radius: 7px; }
-  .topbar nav { display: flex; align-items: center; gap: 26px; }
-  .topbar nav a { color: #C9C4BC; font-size: 14px; font-weight: 500; }
-  .topbar nav a:hover { color: #F5F1E8; }
-  .topbar nav .cta {
-    background: #DC3C82; color: #FFFFFF;
-    padding: 9px 20px; border-radius: 999px;
-    font-weight: 700; font-size: 13px;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-  .topbar nav .cta:hover { background: #C2316F; color: #FFFFFF; transform: translateY(-1px); }
-  @media (max-width: 720px) {
-    .topbar nav { gap: 14px; }
-    .topbar nav a:not(.cta) { display: none; }
-  }
-
-  /* ─── HERO (style Galatea : émotionnel, pas de mockup) ─── */
-  .hero {
-    padding: 160px 0 100px;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 40% at 50% 10%, rgba(220,60,130,0.18) 0%, transparent 65%),
-      radial-gradient(ellipse 80% 60% at 50% 80%, rgba(107,15,42,0.20) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-eyebrow {
-    display: inline-block;
-    padding: 8px 18px;
-    background: rgba(220,60,130,0.12);
-    border: 1px solid rgba(220,60,130,0.4);
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #F5B8C8;
-    margin-bottom: 28px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    position: relative;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(44px, 8vw, 84px);
-    font-weight: 700;
-    line-height: 1.0;
-    letter-spacing: -1px;
-    margin-bottom: 24px;
-    position: relative;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero h1 .italic {
-    font-style: italic;
-    color: #DC3C82;
-  }
-  .hero .lede {
-    color: #C9C4BC;
-    font-size: clamp(16px, 2vw, 19px);
-    margin-bottom: 40px;
-    max-width: 600px;
-    line-height: 1.65;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-  }
-  .hero .cta-btn {
-    display: inline-block;
-    padding: 16px 38px;
-    background: #DC3C82;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 999px;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-    box-shadow: 0 10px 30px rgba(220,60,130,0.4);
-    position: relative;
-    letter-spacing: 0.3px;
-  }
-  .hero .cta-btn:hover { background: #C2316F; transform: translateY(-2px); box-shadow: 0 14px 36px rgba(220,60,130,0.5); }
-
-  /* ─── Download buttons (App Store + Google Play badges) ─── */
-  .download-row {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-    margin-bottom: 18px;
-  }
-  .dl-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 22px;
-    background: #F5F1E8;
-    color: #0E0A0C;
-    border-radius: 14px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.4);
-  }
-  .dl-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(220,60,130,0.3);
-  }
-  .dl-btn svg {
-    width: 26px; height: 26px;
-    flex-shrink: 0;
-    color: #0E0A0C;
-  }
-  .dl-btn .txt {
-    display: flex; flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.1;
-  }
-  .dl-btn .txt small {
-    font-size: 10px;
-    opacity: 0.7;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-  }
-  .dl-btn .txt strong {
-    font-size: 15px;
-    font-weight: 700;
-  }
-  .download-row.final .dl-btn {
-    background: #F5F1E8;
-    color: #0E0A0C;
-  }
-  .hero .cta-sub {
-    margin-top: 18px;
-    color: #6B6368;
-    font-size: 13px;
-    position: relative;
-  }
-  .hero .cta-sub strong { color: #DC3C82; font-weight: 600; }
-
-  /* ─── CATEGORIES GRID (style Galatea) ─── */
-  .categories { padding: 80px 0 60px; background: #110D0F; }
-  .section-header {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  .section-eyebrow {
-    color: #DC3C82;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 4vw, 38px);
-    font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 12px;
-  }
-  .section-title .italic { font-style: italic; color: #DC3C82; }
-  .section-subtitle {
-    color: #C9C4BC;
-    font-size: 15px;
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-
-  .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 14px;
-  }
-  .cat-card {
-    background: #1A1416;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 14px;
-    padding: 22px 18px;
-    text-align: center;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    cursor: pointer;
-  }
-  .cat-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(220,60,130,0.4);
-  }
-  .cat-card .emoji {
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-  .cat-card .name {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    font-size: 14px;
-    color: #F5F1E8;
-    line-height: 1.3;
-  }
-
-  /* ─── CAROUSELS PAR TROPE ─── */
-  .trope-section { padding: 60px 0; background: #0E0A0C; }
-  .trope-section:nth-of-type(even) { background: #110D0F; }
-  .trope-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 28px;
-    gap: 20px;
-  }
-  .trope-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(22px, 3vw, 28px);
-    font-weight: 700;
-    line-height: 1.2;
-  }
-  .trope-header h2 .italic { font-style: italic; color: #DC3C82; font-weight: 400; }
-  .trope-header .view-all {
-    color: #DC3C82;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    flex-shrink: 0;
-  }
-  .trope-header .view-all:hover { color: #F5B8C8; }
-
-  .book-carousel {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding-bottom: 12px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    margin: 0 -24px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .book-carousel::-webkit-scrollbar { height: 6px; }
-  .book-carousel::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 3px; }
-  .book-carousel::-webkit-scrollbar-thumb { background: rgba(220,60,130,0.4); border-radius: 3px; }
-
-  .book-item {
-    flex: 0 0 180px;
-    scroll-snap-align: start;
-    cursor: pointer;
-  }
-  .book-item .cover {
-    aspect-ratio: 2 / 3;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    margin-bottom: 12px;
-  }
-  .book-item:hover .cover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 16px 36px rgba(220,60,130,0.25);
-  }
-  .book-item .cover img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
-  }
-  .book-item .title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    font-size: 14px;
-    color: #F5F1E8;
-    line-height: 1.3;
-    margin-bottom: 3px;
-  }
-  .book-item .author {
-    font-size: 12px;
-    color: #6B6368;
-  }
-
-  /* ─── MANIFESTO ─── */
-  .manifesto {
-    padding: 100px 24px;
-    background: #110D0F;
-    position: relative;
-    overflow: hidden;
-  }
-  .manifesto::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(220,60,130,0.08) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .manifesto-card {
-    max-width: 760px; margin: 0 auto;
-    text-align: center;
-    position: relative;
-  }
-  .manifesto-card .quote-mark {
-    font-family: 'Playfair Display', serif;
-    font-size: 80px;
-    color: rgba(220,60,130,0.3);
-    line-height: 0.5;
-    margin-bottom: 16px;
-    display: block;
-  }
-  .manifesto-card p {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(20px, 2.6vw, 26px);
-    font-style: italic;
-    color: #F5F1E8;
-    line-height: 1.55;
-    margin-bottom: 18px;
-    letter-spacing: 0.2px;
-  }
-  .manifesto-card .signature {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-size: 13px;
-    color: #C9C4BC;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-top: 24px;
-  }
-
-  /* ─── FINAL CTA ─── */
-  .final-cta {
-    background: linear-gradient(135deg, #6B0F2A 0%, #2A0F1A 100%);
-    text-align: center;
-    padding: 100px 24px;
-    position: relative;
-    overflow: hidden;
-  }
-  .final-cta::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, rgba(220,60,130,0.35) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .final-cta h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 5vw, 48px);
-    font-weight: 700;
-    line-height: 1.05;
-    margin-bottom: 18px;
-    position: relative;
-  }
-  .final-cta h2 .italic { font-style: italic; }
-  .final-cta p {
-    color: rgba(245,241,232,0.92);
-    font-size: 16px;
-    max-width: 500px;
-    margin: 0 auto 36px;
-    line-height: 1.6;
-    position: relative;
-  }
-  .final-cta button {
-    display: inline-block;
-    padding: 16px 40px;
-    background: #F5F1E8;
-    color: #0E0A0C;
-    border: none;
-    border-radius: 999px;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    position: relative;
-    letter-spacing: 0.3px;
-  }
-  .final-cta button:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,0.5); }
-
-  /* ─── Footer ─── */
-  footer {
-    background: #0A0709;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    padding: 56px 24px 32px;
-  }
-  footer .row {
-    max-width: 1240px; margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 36px;
-  }
-  @media (max-width: 720px) {
-    footer .row { grid-template-columns: 1fr; text-align: center; gap: 32px; }
-  }
-  footer .col h4 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    color: #F5F1E8;
-    font-size: 15px;
-    margin-bottom: 16px;
-  }
-  footer .col a { display: block; color: #C9C4BC; font-size: 13px; margin-bottom: 10px; }
-  footer .col a:hover { color: #F5F1E8; }
-  footer .brand-bottom {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 14px;
-  }
-  @media (max-width: 720px) {
-    footer .brand-bottom { justify-content: center; }
-  }
-  footer .brand-bottom img { width: 36px; height: 36px; border-radius: 8px; }
-  footer .brand-bottom span {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700; font-size: 17px;
-    color: #F5F1E8;
-  }
-  footer .tagline-foot {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: #DC3C82;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    margin-bottom: 18px;
-  }
-  footer .socials {
-    display: flex; gap: 12px;
-  }
-  @media (max-width: 720px) {
-    footer .socials { justify-content: center; }
-  }
-  footer .socials a {
-    display: inline-flex;
-    align-items: center; justify-content: center;
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.04);
-    color: #C9C4BC;
-    transition: background 0.15s ease, color 0.15s ease;
-  }
-  footer .socials a:hover { background: rgba(220,60,130,0.18); color: #F5B8C8; }
-  footer .socials svg { width: 16px; height: 16px; }
-  footer .copyright {
-    max-width: 1240px; margin: 0 auto;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    padding-top: 24px;
-    text-align: center;
-    color: #6B6368;
-    font-size: 12px;
-  }
-
-  /* ─── Modal lead capture ─── */
-  .modal-overlay {
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.82);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 1000;
-    display: none;
-    align-items: center; justify-content: center;
-    padding: 24px;
-  }
-  .modal-overlay.show { display: flex; }
-  .modal {
-    background: #1A1416;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 24px;
-    padding: 48px 40px 40px;
-    max-width: 460px;
-    width: 100%;
-    position: relative;
-    text-align: center;
-  }
-  .modal .close {
-    position: absolute;
-    top: 18px; right: 18px;
-    background: transparent; border: none;
-    color: #C9C4BC;
-    width: 32px; height: 32px;
-    cursor: pointer; font-size: 22px;
-    border-radius: 50%;
-    transition: background 0.15s ease;
-  }
-  .modal .close:hover { background: rgba(255,255,255,0.06); color: #F5F1E8; }
-  .modal .moon {
-    font-size: 36px; margin-bottom: 12px;
-  }
-  .modal h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    line-height: 1.15;
-  }
-  .modal h3 .italic { font-style: italic; color: #DC3C82; }
-  .modal p {
-    color: #C9C4BC;
-    font-size: 14px;
-    margin-bottom: 26px;
-    line-height: 1.6;
-  }
-  /* La modale sert de sélecteur de store quand on n'a pas pu détecter
-     la plateforme (desktop) : les 2 badges empilés. */
-  .modal .download-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    margin-bottom: 0;
-  }
-  .modal .dl-btn { justify-content: center; }
-</style>
-  <meta name="facebook-domain-verification" content="xnh7aa6yw7c30az1rn6q7ctvkrt1t9" />
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '988007563929955');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=988007563929955&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+<meta name="facebook-domain-verification" content="xnh7aa6yw7c30az1rn6q7ctvkrt1t9" />
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '988007563929955');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=988007563929955&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
-
-<!-- ─── TOPBAR ─── -->
-<div class="topbar">
+<header class="topbar">
   <div class="row">
-    <a class="brand" href="/">
-      <img src="/favicon.png" alt="Obsidian Read" />
-      <span>Obsidian Read</span>
-    </a>
+    <a class="brand" href="/"><img src="/favicon.png" alt="" width="34" height="34" /><span>Obsidian Read</span></a>
     <nav>
-      <a href="#tropes">Tropes</a>
-      <a href="#histoires">Histoires</a>
-      <a href="#" class="cta" onclick="smartDownload();return false;">Télécharger l'app</a>
+      <a href="/romans/">Les romans</a>
+      <a href="/par-envie/">Par envie</a>
+      <a href="/abonnement/">Abonnement</a>
+      <a href="/contact/">Nous écrire</a>
+      <a href="#" class="btn btn-nav" onclick="smartDownload();return false;">Télécharger<span class="nav-long"> l'application</span></a>
     </nav>
   </div>
-</div>
+</header>
 
-<!-- ─── HERO ─── -->
 <section class="hero">
-  <div class="container">
-    <span class="hero-eyebrow">🌙 Romance app · Francophonie</span>
-    <h1>Cette nuit, choisis <span class="italic">ton histoire</span>.</h1>
-    <p class="lede">
-      Une bibliothèque française de romances slow burn, dark academia et enemies-to-lovers. Écrite pour celles qui ne referment un livre qu'au cliffhanger final.
-    </p>
-    <div class="download-row">
-      <a class="dl-btn" href="https://apps.apple.com/fr/app/obsidian-read/id6770984110" target="_blank" rel="noopener" onclick="trackDownload('ios')" aria-label="Télécharger Obsidian Read sur l'App Store">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-        <span class="txt"><small>Télécharger sur</small><strong>App Store</strong></span>
-      </a>
-      <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.obsidianread.app" target="_blank" rel="noopener" onclick="trackDownload('android')" aria-label="Télécharger Obsidian Read sur Google Play">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
-        <span class="txt"><small>Disponible sur</small><strong>Google Play</strong></span>
-      </a>
+  <div class="wrap">
+    <div class="label">La romance a son application.</div>
+    <h1>Choisis ta prochaine romance sur Obsidian Read. Emporte-la partout avec toi.</h1>
+    <p class="hero-lede">Un faux couple qui devient jaloux. Des ennemis obligés de se côtoyer. Un premier amour qui revient au mauvais moment. Et bien d'autres.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn" onclick="smartDownload();return false;">Télécharger l'application</a>
+      <a href="#histoires" class="btn btn-ghost">Découvrir les romans</a>
     </div>
-    <div class="cta-sub">
-      <strong>+10 Frissons offerts</strong> à l'inscription · Premiers chapitres gratuits
+    <div class="muted">Disponible sur iPhone et Android.</div>
+  </div>
+</section>
+
+<section class="cats">
+  <div class="wrap">
+    <div class="cats-head"><h2>Catégories populaires</h2><a class="link" href="/par-envie/">Afficher tout</a></div>
+    <div class="chips"><a class="chip" href="/romans/#enemies-to-lovers" data-cat="enemies-to-lovers"><span class="em">⚔️</span>Enemies to lovers</a><a class="chip" href="/romans/#faux-couple" data-cat="faux-couple"><span class="em">💍</span>Faux couple</a><a class="chip" href="/romans/#amour-interdit" data-cat="amour-interdit"><span class="em">🚫</span>Amour interdit</a><a class="chip" href="/romans/#slow-burn" data-cat="slow-burn"><span class="em">🔥</span>Slow burn</a><a class="chip" href="/romans/#huis-clos" data-cat="huis-clos"><span class="em">🚪</span>Huis clos</a><a class="chip" href="/romans/#milliardaires" data-cat="milliardaires"><span class="em">💰</span>Romances de milliardaires</a><a class="chip" href="/romans/#prof-etudiante" data-cat="prof-etudiante"><span class="em">🎓</span>Prof et étudiante</a><a class="chip" href="/romans/#hockey" data-cat="hockey"><span class="em">🏒</span>Hockey</a><a class="chip" href="/romans/#football-americain" data-cat="football-americain"><span class="em">🏈</span>Football américain</a><a class="chip" href="/romans/#dark-romance" data-cat="dark-romance"><span class="em">🖤</span>Dark romance</a><a class="chip" href="/romans/#mafia" data-cat="mafia"><span class="em">🕴️</span>Mafia</a><a class="chip" href="/romans/#garde-du-corps" data-cat="garde-du-corps"><span class="em">🛡️</span>Garde du corps</a><a class="chip" href="/romans/#mariage-arrange" data-cat="mariage-arrange"><span class="em">💒</span>Mariage arrangé</a><a class="chip" href="/romans/#pere-celibataire" data-cat="pere-celibataire"><span class="em">👨‍👧</span>Père célibataire</a><a class="chip" href="/romans/#ecart-d-age" data-cat="ecart-d-age"><span class="em">⏳</span>Écart d&#x27;âge</a><a class="chip" href="/romans/#hommes-alpha" data-cat="hommes-alpha"><span class="em">💪</span>Les hommes alpha</a><a class="chip" href="/romans/#seconde-chance" data-cat="seconde-chance"><span class="em">🔁</span>Seconde chance</a><a class="chip" href="/romans/#grumpy-sunshine" data-cat="grumpy-sunshine"><span class="em">☀️</span>Grumpy × Sunshine</a></div>
+  </div>
+</section>
+
+<section class="carousel-wrap" id="histoires">
+  <div class="wrap">
+    <div class="carousel-head">
+      <h2>Découvre les histoires sur l'application</h2>
+      <div class="arrows">
+        <button type="button" class="arrow" data-carousel="track-histoires" data-dir="-1" aria-label="Précédent"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button type="button" class="arrow" data-carousel="track-histoires" data-dir="1" aria-label="Suivant"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="carousel" id="track-histoires">
+      <div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="Le mauvais Kingston"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/la-case-accompagnee.jpg?v=1" alt="" loading="lazy" /></a>
+      <div class="car-title">Le mauvais Kingston</div>
+      <div class="car-tag">Elle voulait une arme contre son ex. Elle a ramené bien pire.</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div><div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="Reste"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/reste.jpg?v=2" alt="" loading="lazy" /></a>
+      <div class="car-title">Reste</div>
+      <div class="car-tag">Un mauvais billet. Une couchette. Deux inconnus décidés, chacun, à disparaître au bout de la ligne.</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div><div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="Sang et Serment"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sang-et-serment.jpg?v=1" alt="" loading="lazy" /></a>
+      <div class="car-title">Sang et Serment</div>
+      <div class="car-tag">Mariée à un Don de Cosa Nostra pour solder une dette de sang.</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div><div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="Off-Limits"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/off-limits.jpg?v=2" alt="" loading="lazy" /></a>
+      <div class="car-title">Off-Limits</div>
+      <div class="car-tag">Il était son numéro de secours. Il est devenu son pire secret.</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div><div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="N&#x27;oublie pas mon prénom"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/noublie-pas-mon-prenom.jpg?v=2" alt="" loading="lazy" /></a>
+      <div class="car-title">N&#x27;oublie pas mon prénom</div>
+      <div class="car-tag">Il a couché avec cent femmes sans retenir un seul prénom. Le sien, il le connaissait depuis le premier jour.</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div><div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="Le Colosse et l&#x27;Étoile"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/le-colosse-et-l-etoile.jpg?v=2" alt="" loading="lazy" /></a>
+      <div class="car-title">Le Colosse et l&#x27;Étoile</div>
+      <div class="car-tag">Un linebacker de 116 kilos condamné à la danse classique. Sa prof : une étoile brisée qui ne danse plus.</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div><div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="À charge, à cœur"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/a-charge-a-coeur.jpg?v=4" alt="" loading="lazy" /></a>
+      <div class="car-title">À charge, à cœur</div>
+      <div class="car-tag">Prof de droit pénal contre étudiante rebelle</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div><div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="Sous le masque"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sous-le-masque.jpg?v=4" alt="" loading="lazy" /></a>
+      <div class="car-title">Sous le masque</div>
+      <div class="car-tag">Son garde du corps ne retire jamais son masque</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div><div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="Hors antenne"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/hors-antenne.jpg?v=4" alt="" loading="lazy" /></a>
+      <div class="car-title">Hors antenne</div>
+      <div class="car-tag">Une journaliste sportive. Un capitaine NHL. Soixante jours embarqués.</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div><div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="La Cible"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/la-cible.jpg?v=2" alt="" loading="lazy" /></a>
+      <div class="car-title">La Cible</div>
+      <div class="car-tag">Une photographe de 23 ans. Un tueur à gages de 32 ans. 18 jours pour tomber.</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div><div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="Une Nouvelle Partition"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/une-nouvelle-partition.jpg?v=3" alt="" loading="lazy" /></a>
+      <div class="car-title">Une Nouvelle Partition</div>
+      <div class="car-tag">Une pianiste cassée. Un veuf de 38 ans. Un piano interdit.</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div><div class="car-item">
+      <a class="cover" href="#" onclick="smartDownload();return false;" aria-label="Pour de faux"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/pour-de-faux.jpg?v=1" alt="" loading="lazy" /></a>
+      <div class="car-title">Pour de faux</div>
+      <div class="car-tag">Une fiancée à louer. Un homme qui ne garde personne. Une mourante qui voit tout.</div>
+      <a class="link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+    </div>
     </div>
   </div>
 </section>
 
-<!-- ─── CATEGORIES GRID ─── -->
-<section class="categories" id="tropes">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Catégories</div>
-      <h2 class="section-title">Trouve ton <span class="italic">trope</span>.</h2>
-    </div>
 
-    <div class="cat-grid">
-      <div class="cat-card" onclick="smartDownload()">
-        <div class="emoji">🌙</div>
-        <div class="name">Slow Burn</div>
-      </div>
-      <div class="cat-card" onclick="smartDownload()">
-        <div class="emoji">🖤</div>
-        <div class="name">Dark Romance</div>
-      </div>
-      <div class="cat-card" onclick="smartDownload()">
-        <div class="emoji">⚔️</div>
-        <div class="name">Enemies to Lovers</div>
-      </div>
-      <div class="cat-card" onclick="smartDownload()">
-        <div class="emoji">🚫</div>
-        <div class="name">Forbidden</div>
-      </div>
-      <div class="cat-card" onclick="smartDownload()">
-        <div class="emoji">🏒</div>
-        <div class="name">Hockey Romance</div>
-      </div>
-      <div class="cat-card" onclick="smartDownload()">
-        <div class="emoji">🎓</div>
-        <div class="name">Prof-étudiante</div>
-      </div>
-      <div class="cat-card" onclick="smartDownload()">
-        <div class="emoji">👨‍👧</div>
-        <div class="name">Single Dad</div>
-      </div>
-      <div class="cat-card" onclick="smartDownload()">
-        <div class="emoji">🎯</div>
-        <div class="name">Hitman & Target</div>
-      </div>
+<section class="start">
+  <div class="wrap">
+    <h2>Par quelle histoire tu commences ?</h2>
+    <div class="books">
+      <article class="book" data-tags="enemies-to-lovers faux-couple hommes-alpha">
+  <a class="book-cover" href="#" onclick="smartDownload();return false;" aria-label="Le mauvais Kingston"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/la-case-accompagnee.jpg?v=1" alt="" loading="lazy" /></a>
+  <div class="book-head">
+    <div class="label">Faux couple · Enemies to lovers · 18+</div>
+    <h3 class="book-title">Le mauvais Kingston</h3>
+  </div>
+  <p class="book-summary">Piper Bellamy a un café-pâtisserie monté de rien, une ex-meilleure amie qui l&#x27;a trahie, et un ex tout court qui a le culot de l&#x27;inviter à son mariage. Parce que oui : il y a trois ans, Blake l&#x27;a trompée avec ladite meilleure amie, et aujourd&#x27;hui il l&#x27;épouse. Hors de question d&#x27;y aller seule et de se faire dévisager par toute la famille pendant six jours. Alors Piper débarque avec un plus-un… qui se trouve être Wyatt Kingston. 32 ans, mécano, l&#x27;aîné banni du clan, le grand frère que Blake ne supporte même pas de voir. Autrement dit : l&#x27;arme parfaite. Six jours de faux couple sous le même toit, la main de Wyatt dans le bas de son dos devant deux cents invités, un rôle à tenir jusqu&#x27;au « oui ». Le problème ? À force de faire semblant, Piper ne sait plus très bien où s&#x27;arrête la comédie.</p>
+  <a class="link book-link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+</article>
+      <article class="book" data-tags="slow-burn huis-clos grumpy-sunshine">
+  <a class="book-cover" href="#" onclick="smartDownload();return false;" aria-label="Reste"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/reste.jpg?v=2" alt="" loading="lazy" /></a>
+  <div class="book-head">
+    <div class="label">Huis clos · Grumpy × Sunshine · 18+</div>
+    <h3 class="book-title">Reste</h3>
+  </div>
+  <p class="book-summary">Margaux devait se marier. Puis, la veille de la cérémonie, elle a surpris son fiancé en train d&#x27;avouer qu&#x27;il ne l&#x27;aimait pas vraiment : elle était juste « reposante » et « facile à vivre ». Charmant. Alors elle a laissé un mot, fait ses valises, et sauté dans le premier train pour le bout du monde : le Transsibérien, sept jours à travers la Sibérie glacée. Sauf qu&#x27;à cause d&#x27;une erreur de réservation, son compartiment n&#x27;a qu&#x27;une seule couchette. Et un inconnu est déjà installé dessus. Gabriel est grand, glacial, et bien décidé à ne pas lui adresser un mot jusqu&#x27;au terminus. Il voyage avec un aller simple et une petite boîte en bois qu&#x27;il serre dès que quelque chose remonte en lui. Deux inconnus, un mètre carré, sept jours de Sibérie. Ah oui, et un dernier détail : ils ne descendent pas au même arrêt.</p>
+  <a class="link book-link" href="#" onclick="smartDownload();return false;">Lire sur l'application</a>
+</article>
+    </div>
+    <div class="center"><a href="/romans/" class="btn btn-ghost">Voir toutes les histoires</a></div>
+  </div>
+</section>
+
+<section class="prefs">
+  <div class="wrap prefs-row">
+    <div class="prefs-left">
+      <h2>Tu les préfères comment ?</h2>
+      <p>Explore les romances selon ce que tu aimes lire.</p>
+      <div class="chips"><a class="chip" href="/romans/#enemies-to-lovers" data-cat="enemies-to-lovers"><span class="em">⚔️</span>Enemies to lovers</a><a class="chip" href="/romans/#faux-couple" data-cat="faux-couple"><span class="em">💍</span>Faux couple</a><a class="chip" href="/romans/#amour-interdit" data-cat="amour-interdit"><span class="em">🚫</span>Amour interdit</a><a class="chip" href="/romans/#slow-burn" data-cat="slow-burn"><span class="em">🔥</span>Slow burn</a><a class="chip" href="/romans/#huis-clos" data-cat="huis-clos"><span class="em">🚪</span>Huis clos</a><a class="chip" href="/romans/#milliardaires" data-cat="milliardaires"><span class="em">💰</span>Romances de milliardaires</a><a class="chip" href="/romans/#prof-etudiante" data-cat="prof-etudiante"><span class="em">🎓</span>Prof et étudiante</a><a class="chip" href="/romans/#hockey" data-cat="hockey"><span class="em">🏒</span>Hockey</a><a class="chip" href="/romans/#football-americain" data-cat="football-americain"><span class="em">🏈</span>Football américain</a><a class="chip" href="/romans/#dark-romance" data-cat="dark-romance"><span class="em">🖤</span>Dark romance</a><a class="chip" href="/romans/#mafia" data-cat="mafia"><span class="em">🕴️</span>Mafia</a><a class="chip" href="/romans/#garde-du-corps" data-cat="garde-du-corps"><span class="em">🛡️</span>Garde du corps</a><a class="chip" href="/romans/#mariage-arrange" data-cat="mariage-arrange"><span class="em">💒</span>Mariage arrangé</a><a class="chip" href="/romans/#pere-celibataire" data-cat="pere-celibataire"><span class="em">👨‍👧</span>Père célibataire</a><a class="chip" href="/romans/#ecart-d-age" data-cat="ecart-d-age"><span class="em">⏳</span>Écart d&#x27;âge</a><a class="chip" href="/romans/#hommes-alpha" data-cat="hommes-alpha"><span class="em">💪</span>Les hommes alpha</a><a class="chip" href="/romans/#seconde-chance" data-cat="seconde-chance"><span class="em">🔁</span>Seconde chance</a><a class="chip" href="/romans/#grumpy-sunshine" data-cat="grumpy-sunshine"><span class="em">☀️</span>Grumpy × Sunshine</a></div>
+    </div>
+    <div class="prefs-lines">
+      <div>Quand ils se détestent.</div>
+      <div>Quand ils font semblant.</div>
+      <div>Quand ils n'ont pas le droit.</div>
+      <div>Quand ils se retrouvent.</div>
+      <div class="gold">Et bien d'autres.</div>
     </div>
   </div>
 </section>
 
-<!-- ─── CAROUSELS PAR TROPE ─── -->
-<section class="trope-section" id="histoires">
-  <div class="container">
-    <div class="trope-header">
-      <h2><span class="italic">Slow burn</span> qui te dévore</h2>
-      <a href="#" class="view-all" onclick="smartDownload();return false;">Voir tout ›</a>
-    </div>
-    <div class="book-carousel">
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/noublie-pas-mon-prenom.jpg?v=1" alt="N'oublie pas mon prénom" loading="lazy" /></div>
-        <div class="title">N'oublie pas mon prénom</div>
-        <div class="author">Obsidian Read</div>
-      </div>
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/pour-de-faux.jpg?v=1" alt="Pour de faux" loading="lazy" /></div>
-        <div class="title">Pour de faux</div>
-        <div class="author">Obsidian Read</div>
-      </div>
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/a-charge-a-coeur.jpg?v=2" alt="À charge à cœur" loading="lazy" /></div>
-        <div class="title">À charge à cœur</div>
-        <div class="author">Obsidian Read</div>
-      </div>
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/une-nouvelle-partition.jpg?v=3" alt="Une Nouvelle Partition" loading="lazy" /></div>
-        <div class="title">Une Nouvelle Partition</div>
-        <div class="author">Obsidian Read</div>
-      </div>
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/hors-antenne.jpg?v=2" alt="Hors antenne" loading="lazy" /></div>
-        <div class="title">Hors antenne</div>
-        <div class="author">Obsidian Read</div>
-      </div>
-    </div>
+<section class="comfort">
+  <div class="wrap">
+    <h2>Installe-toi. On s'occupe du confort.</h2>
+    <p>Agrandis le texte, choisis ton fond de lecture et reprends ton histoire là où tu l'as laissée.</p>
+    <p class="serif-line">À toi de choisir comment tu lis.</p>
   </div>
 </section>
 
-<section class="trope-section">
-  <div class="container">
-    <div class="trope-header">
-      <h2>Dark romance & <span class="italic">tension extrême</span></h2>
-      <a href="#" class="view-all" onclick="smartDownload();return false;">Voir tout ›</a>
+<section class="abo-band">
+  <div class="wrap abo-row">
+    <div>
+      <div class="abo-title">Tout le catalogue avec un seul abonnement.</div>
+      <div class="abo-sub">1,99 € la semaine ou 49,90 € l'année. Résiliable à tout moment depuis ton téléphone.</div>
     </div>
-    <div class="book-carousel">
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sang-et-serment.jpg?v=1" alt="Sang et Serment" loading="lazy" /></div>
-        <div class="title">Sang et Serment</div>
-        <div class="author">Obsidian Read</div>
-      </div>
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/la-cible.jpg?v=2" alt="La Cible" loading="lazy" /></div>
-        <div class="title">La Cible</div>
-        <div class="author">Obsidian Read</div>
-      </div>
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sous-le-masque.jpg?v=2" alt="Sous le masque" loading="lazy" /></div>
-        <div class="title">Sous le masque</div>
-        <div class="author">Obsidian Read</div>
-      </div>
+    <a href="#" class="btn" onclick="smartDownload();return false;">Télécharger l'application</a>
+  </div>
+</section>
+<section class="final">
+  <div class="wrap">
+    <h2>Tu as repéré une histoire ?</h2>
+    <p>Choisis ta prochaine romance sur Obsidian Read. Emporte-la partout avec toi.</p>
+    <div class="badges center">
+      <a class="badge" href="https://apps.apple.com/fr/app/obsidian-read/id6770984110" target="_blank" rel="noopener" onclick="trackDownload('ios')" aria-label="Télécharger Obsidian Read dans l'App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span><small>Télécharger dans l'</small><strong>App Store</strong></span></a>
+      <a class="badge" href="https://play.google.com/store/apps/details?id=com.obsidianread.app" target="_blank" rel="noopener" onclick="trackDownload('android')" aria-label="Télécharger Obsidian Read sur Google Play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg><span><small>Disponible sur</small><strong>Google Play</strong></span></a>
     </div>
   </div>
 </section>
-
-<section class="trope-section">
-  <div class="container">
-    <div class="trope-header">
-      <h2>Enemies to <span class="italic">lovers</span></h2>
-      <a href="#" class="view-all" onclick="smartDownload();return false;">Voir tout ›</a>
-    </div>
-    <div class="book-carousel">
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sang-et-serment.jpg?v=1" alt="Sang et Serment" loading="lazy" /></div>
-        <div class="title">Sang et Serment</div>
-        <div class="author">Obsidian Read</div>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="foot-brand">
+        <div class="brand"><img src="/favicon.png" alt="" width="28" height="28" /><span>Obsidian Read</span></div>
+        <div class="foot-sign">La romance a son application.</div>
+        <div class="socials">
+          <a href="https://www.tiktok.com/@obsidianread" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg></a>
+          <a href="https://www.instagram.com/obsidianread" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        </div>
       </div>
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/a-charge-a-coeur.jpg?v=2" alt="À charge à cœur" loading="lazy" /></div>
-        <div class="title">À charge à cœur</div>
-        <div class="author">Obsidian Read</div>
-      </div>
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/hors-antenne.jpg?v=2" alt="Hors antenne" loading="lazy" /></div>
-        <div class="title">Hors antenne</div>
-        <div class="author">Obsidian Read</div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <div class="foot-h">Navigation</div>
+          <a href="/romans/">Les romans</a><a href="/par-envie/">Par envie</a><a href="/abonnement/">Abonnement</a><a href="/contact/">Nous écrire</a>
+        </div>
+        <div class="foot-col">
+          <div class="foot-h">Légal</div>
+          <a href="/terms">Conditions générales</a><a href="/privacy">Confidentialité</a><a href="/delete-account/">Supprimer mon compte</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="trope-section">
-  <div class="container">
-    <div class="trope-header">
-      <h2>Forbidden & <span class="italic">slow burn musical</span></h2>
-      <a href="#" class="view-all" onclick="smartDownload();return false;">Voir tout ›</a>
-    </div>
-    <div class="book-carousel">
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/sous-le-masque.jpg?v=2" alt="Sous le masque" loading="lazy" /></div>
-        <div class="title">Sous le masque</div>
-        <div class="author">Obsidian Read</div>
-      </div>
-      <div class="book-item" onclick="smartDownload()">
-        <div class="cover"><img src="https://raw.githubusercontent.com/JulieAppMobile/obsidian-read-covers/main/une-nouvelle-partition.jpg?v=3" alt="Une Nouvelle Partition" loading="lazy" /></div>
-        <div class="title">Une Nouvelle Partition</div>
-        <div class="author">Obsidian Read</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── MANIFESTO ─── -->
-<section class="manifesto">
-  <div class="manifesto-card">
-    <span class="quote-mark">"</span>
-    <p>
-      Toutes les apps de romance francophones traduisent des fanfics anglaises avec des phrases ratées. Mes lectrices méritent mieux : du français pensé pour le français, des cliffhangers qui font mal, des slow burn qui prennent leur temps.
-    </p>
-    <p>
-      Ici, on ne saute pas les étapes. On les déguste.
-    </p>
-    <div class="signature">— mrs.julief, fondatrice</div>
-  </div>
-</section>
-
-<!-- ─── FINAL CTA ─── -->
-<section class="final-cta">
-  <h2>Prête à <span class="italic">tomber</span> ?</h2>
-  <p>Télécharge Obsidian Read et reçois 10 Frissons dès ton inscription. Bonne nuit blanche.</p>
-  <div class="download-row final">
-    <a class="dl-btn" href="https://apps.apple.com/fr/app/obsidian-read/id6770984110" target="_blank" rel="noopener" onclick="trackDownload('ios')" aria-label="Télécharger Obsidian Read sur l'App Store">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-      <span class="txt"><small>Télécharger sur</small><strong>App Store</strong></span>
-    </a>
-    <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.obsidianread.app" target="_blank" rel="noopener" onclick="trackDownload('android')" aria-label="Télécharger Obsidian Read sur Google Play">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
-      <span class="txt"><small>Disponible sur</small><strong>Google Play</strong></span>
-    </a>
-  </div>
-</section>
-
-<!-- ─── FOOTER ─── -->
-<footer>
-  <div class="row">
-    <div class="col">
-      <div class="brand-bottom">
-        <img src="/favicon.png" alt="Obsidian Read" />
-        <span>Obsidian Read</span>
-      </div>
-      <div class="tagline-foot">Romances qui tiennent éveillée.</div>
-      <div class="socials">
-        <a href="https://www.tiktok.com/@obsidianread" target="_blank" rel="noopener" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/obsidianread" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2 0 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07-3.2 0-3.58 0-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85 0-3.2 0-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 1.44C8.86 3.6 8.5 3.61 7.27 3.67 4.65 3.78 3.58 4.87 3.47 7.49c-.06 1.24-.07 1.6-.07 4.51 0 2.9.01 3.27.07 4.51.11 2.62 1.18 3.71 3.8 3.82 1.24.06 1.6.07 4.73.07 3.13 0 3.5-.01 4.73-.07 2.62-.11 3.7-1.2 3.8-3.82.07-1.24.07-1.6.07-4.51 0-2.9-.01-3.27-.07-4.51-.11-2.62-1.18-3.71-3.8-3.82-1.23-.06-1.6-.07-4.73-.07zm0 2.45a5.96 5.96 0 1 0 0 11.92 5.96 5.96 0 0 0 0-11.92zm0 9.83a3.87 3.87 0 1 1 0-7.74 3.87 3.87 0 0 1 0 7.74zm6.13-10.96a1.39 1.39 0 1 0 0 2.78 1.39 1.39 0 0 0 0-2.78z"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="col">
-      <h4>Navigation</h4>
-      <a href="#tropes">Tropes</a>
-      <a href="#histoires">Histoires</a>
-      <a href="/contact">Nous écrire</a>
-    </div>
-    <div class="col">
-      <h4>Légal</h4>
-      <a href="/terms">Conditions générales</a>
-      <a href="/privacy">Politique de confidentialité</a>
-    </div>
-  </div>
-  <div class="copyright">
-    © 2026 Obsidian Read · Une marque francophone de romance · Tous droits réservés
+    <div class="hair"></div>
+    <div class="copyright">© 2026 Obsidian Read · Tous droits réservés</div>
   </div>
 </footer>
 
-<!-- ─── MODAL : choix du store ───
-     Ne s'ouvre que si on n'a pas pu détecter la plateforme (ordinateur).
-     Sur iPhone / Android, smartDownload() envoie direct au bon store.
--->
+<!-- Choix du store quand on ne détecte pas le téléphone (ordinateur) -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModalOnBackdrop(event)">
-  <div class="modal" id="modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <button class="close" onclick="closeModal()" aria-label="Fermer">×</button>
-    <div class="moon">🌙</div>
-    <h3>Télécharge <span class="italic">Obsidian Read</span></h3>
-    <p>Disponible sur iPhone et Android. +10 Frissons offerts à l'inscription.</p>
-
-    <div class="download-row">
-      <a class="dl-btn" href="https://apps.apple.com/fr/app/obsidian-read/id6770984110" target="_blank" rel="noopener" onclick="trackDownload('ios')" aria-label="Télécharger Obsidian Read sur l'App Store">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-        <span class="txt"><small>Télécharger sur</small><strong>App Store</strong></span>
-      </a>
-      <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.obsidianread.app" target="_blank" rel="noopener" onclick="trackDownload('android')" aria-label="Télécharger Obsidian Read sur Google Play">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg>
-        <span class="txt"><small>Disponible sur</small><strong>Google Play</strong></span>
-      </a>
+    <h3 id="modal-title">Télécharge Obsidian Read</h3>
+    <p>Disponible sur iPhone et Android.</p>
+    <div class="badges column">
+      <a class="badge" href="https://apps.apple.com/fr/app/obsidian-read/id6770984110" target="_blank" rel="noopener" onclick="trackDownload('ios')" aria-label="Télécharger Obsidian Read dans l'App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span><small>Télécharger dans l'</small><strong>App Store</strong></span></a>
+      <a class="badge" href="https://play.google.com/store/apps/details?id=com.obsidianread.app" target="_blank" rel="noopener" onclick="trackDownload('android')" aria-label="Télécharger Obsidian Read sur Google Play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg><span><small>Disponible sur</small><strong>Google Play</strong></span></a>
     </div>
   </div>
 </div>
 
 <script>
-  /* ─── Liens stores officiels ───
-     App Store : app id App Store Connect 6770984110
-     Google Play : package com.obsidianread.app
-     Les badges sont de vrais <a href> : ils fonctionnent même si ce script
-     ne se charge pas. Le JS ne sert qu'aux CTA génériques (menu, cartes).
-  */
   const STORE_IOS = 'https://apps.apple.com/fr/app/obsidian-read/id6770984110';
   const STORE_ANDROID = 'https://play.google.com/store/apps/details?id=com.obsidianread.app';
-
-  // Remonte le clic à Meta pour mesurer les pubs (ne doit jamais bloquer le lien).
   function trackDownload(platform) {
-    try {
-      if (window.fbq) fbq('trackCustom', 'DownloadClick', { platform: platform });
-    } catch (e) {}
+    try { if (window.fbq) fbq('trackCustom', 'DownloadClick', { platform: platform }); } catch (e) {}
   }
-
-  // CTA génériques : on envoie vers le store de l'appareil.
-  // Sur ordinateur, on ne devine pas → on affiche le choix des deux stores.
+  // Bouton générique : on envoie vers le store de l'appareil ; sur ordinateur, on propose les deux.
   function smartDownload() {
     const ua = navigator.userAgent || '';
-    // iPadOS récent se déclare "Macintosh" → on le repère à l'écran tactile.
-    const isIOS = /iPad|iPhone|iPod/.test(ua)
-      || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    const isIOS = /iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
     const isAndroid = /Android/.test(ua);
-
     if (isIOS) { trackDownload('ios'); window.location.href = STORE_IOS; return; }
     if (isAndroid) { trackDownload('android'); window.location.href = STORE_ANDROID; return; }
     openModal();
   }
-
-  function openModal() {
-    document.getElementById('modal-overlay').classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal() {
-    document.getElementById('modal-overlay').classList.remove('show');
-    document.body.style.overflow = '';
-  }
-  function closeModalOnBackdrop(e) {
-    if (e.target.id === 'modal-overlay') closeModal();
-  }
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+  function openModal() { document.getElementById('modal-overlay').classList.add('show'); document.body.style.overflow = 'hidden'; }
+  function closeModal() { document.getElementById('modal-overlay').classList.remove('show'); document.body.style.overflow = ''; }
+  function closeModalOnBackdrop(e) { if (e.target.id === 'modal-overlay') closeModal(); }
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  // Flèches des carrousels
+  document.querySelectorAll('[data-carousel]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const track = document.getElementById(btn.getAttribute('data-carousel'));
+      track.scrollBy({ left: track.clientWidth * 0.8 * Number(btn.getAttribute('data-dir')), behavior: 'smooth' });
+    });
   });
 </script>
-
 </body>
 </html>

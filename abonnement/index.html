@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nous écrire — Obsidian Read</title>
-<meta name="description" content="Une question sur l&#x27;application ou ton abonnement Obsidian Read ? Écris-nous, on répond sous 24 à 48 h." />
-<link rel="canonical" href="https://obsidianread.com/contact/" />
+<title>Abonnement — Obsidian Read</title>
+<meta name="description" content="Un seul abonnement pour tout le catalogue Obsidian Read : 1,99 € la semaine ou 49,90 € l&#x27;année, résiliable à tout moment." />
+<link rel="canonical" href="https://obsidianread.com/abonnement/" />
 <meta name="theme-color" content="#0A0A0A" />
 <meta name="apple-itunes-app" content="app-id=6770984110" />
 <meta property="al:ios:url" content="obsidianread://" />
@@ -14,10 +14,10 @@
 <meta property="al:android:url" content="obsidianread://" />
 <meta property="al:android:package" content="com.obsidianread.app" />
 <meta property="al:android:app_name" content="Obsidian Read" />
-<meta property="og:title" content="Nous écrire — Obsidian Read" />
-<meta property="og:description" content="Une question sur l&#x27;application ou ton abonnement Obsidian Read ? Écris-nous, on répond sous 24 à 48 h." />
+<meta property="og:title" content="Abonnement — Obsidian Read" />
+<meta property="og:description" content="Un seul abonnement pour tout le catalogue Obsidian Read : 1,99 € la semaine ou 49,90 € l&#x27;année, résiliable à tout moment." />
 <meta property="og:image" content="https://obsidianread.com/favicon.png" />
-<meta property="og:url" content="https://obsidianread.com/contact/" />
+<meta property="og:url" content="https://obsidianread.com/abonnement/" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="fr_FR" />
 <link rel="icon" type="image/png" href="/favicon.png" />
@@ -53,69 +53,64 @@ src="https://www.facebook.com/tr?id=988007563929955&ev=PageView&noscript=1"
     <nav>
       <a href="/romans/">Les romans</a>
       <a href="/par-envie/">Par envie</a>
-      <a href="/abonnement/">Abonnement</a>
-      <a href="/contact/" class="on">Nous écrire</a>
+      <a href="/abonnement/" class="on">Abonnement</a>
+      <a href="/contact/">Nous écrire</a>
       <a href="#" class="btn btn-nav" onclick="smartDownload();return false;">Télécharger<span class="nav-long"> l'application</span></a>
     </nav>
   </div>
 </header>
 
-<section class="contact">
-  <div class="wrap contact-row">
-    <div class="contact-intro">
-      <div class="label">Nous écrire</div>
-      <h1>On te lit.</h1>
-      <p class="lede">Une question sur l'application, sur ton abonnement, ou juste envie de dire ce que tu as pensé d'un roman ? Écris-nous, on répond sous 24 à 48 h ouvrées.</p>
-      <div class="contact-alt alt-contact">
-        <div>Par e-mail : <a class="link" href="mailto:contact@obsidianread.com">contact@obsidianread.com</a></div>
-        <div>Sur <a class="link" href="https://www.instagram.com/obsidianread" target="_blank" rel="noopener">Instagram</a> et <a class="link" href="https://www.tiktok.com/@obsidianread" target="_blank" rel="noopener">TikTok</a> : @obsidianread</div>
-      </div>
-      <p class="muted small">Pour résilier ton abonnement, passe par les réglages de ton téléphone. Pour supprimer ton compte, <a class="link" href="/delete-account/">c'est ici</a>.</p>
+<section class="page-head center">
+  <div class="wrap">
+    <div class="label">Abonnement</div>
+    <h1>Tout le catalogue avec un seul abonnement.</h1>
+    <p>Chaque roman, chaque chapitre, et tous ceux qui arrivent. Tu choisis la durée, tu arrêtes quand tu veux.</p>
+  </div>
+</section>
+<section class="offers">
+  <div class="wrap">
+    <div class="offers-grid">
+      <div class="offer best">
+      <div class="offer-head"><span class="offer-name">Annuel</span><span class="tag">Meilleur prix</span></div>
+      <div class="offer-price"><span class="amount">49,90 €</span><span class="per">par an</span></div>
+      <div class="offer-sub">Soit 4,16 € par mois</div>
+      <div class="hair"></div>
+      <ul class="offer-list">
+        <li>Tous les romans, en entier</li>
+        <li>Les nouveautés dès leur sortie</li>
+        <li>Sur iPhone et Android</li>
+        <li>Résiliable à tout moment</li>
+      </ul>
+      <a href="#" class="btn" onclick="smartDownload();return false;">Télécharger l'application</a>
     </div>
-
-    <div class="card form-card">
-      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <!-- Clé Web3Forms publique — formulaire envoie vers contact@obsidianread.com -->
-        <input type="hidden" name="access_key" value="d0144669-c9e5-4540-8702-c9d43152ee20">
-        <input type="hidden" name="from_name" value="Formulaire Obsidian Read">
-        <input type="hidden" name="subject" value="[obsidianread.com/contact] Nouveau message">
-        <input type="checkbox" name="botcheck" style="display:none;">
-        <div class="two">
-          <div class="field">
-            <label for="name">Ton prénom</label>
-            <input type="text" id="name" name="name" required placeholder="Ex : Camille">
-          </div>
-          <div class="field">
-            <label for="email">Ton e-mail</label>
-            <input type="email" id="email" name="email" required placeholder="ton.email@exemple.com">
-          </div>
-        </div>
-        <div class="field">
-          <label for="reason">De quoi veux-tu parler ?</label>
-          <select id="reason" name="reason" required>
-            <option value="" disabled selected>Choisis un sujet…</option>
-            <option value="Bug ou problème technique">Bug ou problème technique</option>
-            <option value="Question sur mon abonnement">Question sur mon abonnement</option>
-            <option value="Question sur les Frissons">Question sur les Frissons</option>
-            <option value="Suggestion ou idée">Suggestion ou idée</option>
-            <option value="Donnees personnelles / RGPD">Données personnelles / RGPD</option>
-            <option value="Collaboration / partenariat">Collaboration / partenariat</option>
-            <option value="Autre">Autre</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="message">Ton message</label>
-          <textarea id="message" name="message" required placeholder="Raconte-nous tout…"></textarea>
-        </div>
-        <button type="submit" class="btn" id="submit-btn">Envoyer</button>
-        <div id="status" class="status" hidden></div>
-      </form>
-      <div id="success-screen" class="success" hidden>
-        <div class="check">✓</div>
-        <h2>Message envoyé !</h2>
-        <p>On a bien reçu ton message. On te répond sous 24 à 48 h ouvrées sur l'e-mail que tu nous as donné.</p>
-        <button type="button" class="btn btn-ghost" onclick="resetForm()">Envoyer un autre message</button>
-      </div>
+      <div class="offer">
+      <div class="offer-head"><span class="offer-name">Hebdomadaire</span></div>
+      <div class="offer-price"><span class="amount">1,99 €</span><span class="per">par semaine</span></div>
+      <div class="offer-sub">Pour essayer sans t'engager</div>
+      <div class="hair"></div>
+      <ul class="offer-list">
+        <li>Tous les romans, en entier</li>
+        <li>Les nouveautés dès leur sortie</li>
+        <li>Sur iPhone et Android</li>
+        <li>Résiliable à tout moment</li>
+      </ul>
+      <a href="#" class="btn btn-ghost" onclick="smartDownload();return false;">Télécharger l'application</a>
+    </div>
+    </div>
+    <div class="faqs">
+      <h2>Questions fréquentes</h2>
+      <div class="faq"><h3>Où est-ce que je m&#x27;abonne ?</h3><p>Dans l&#x27;application, après l&#x27;avoir téléchargée. Le paiement passe par ton compte App Store ou Google Play.</p></div><div class="faq"><h3>Est-ce que je peux arrêter quand je veux ?</h3><p>Oui. Tu résilies depuis les réglages de ton téléphone, à tout moment. Tu gardes l&#x27;accès jusqu&#x27;à la fin de la période déjà payée.</p></div><div class="faq"><h3>Est-ce que je retrouve mes lectures sur un autre téléphone ?</h3><p>Oui. Ta bibliothèque et ta progression sont liées à ton compte, pas à ton appareil.</p></div>
+      <p class="muted small">Tarifs affichés pour la France. Le prix exact est indiqué dans l'application avant tout paiement. L'abonnement se renouvelle automatiquement, sauf résiliation avant la fin de la période en cours.</p>
+    </div>
+  </div>
+</section>
+<section class="final">
+  <div class="wrap">
+    <h2>Tu as repéré une histoire ?</h2>
+    <p>Choisis ta prochaine romance sur Obsidian Read. Emporte-la partout avec toi.</p>
+    <div class="badges center">
+      <a class="badge" href="https://apps.apple.com/fr/app/obsidian-read/id6770984110" target="_blank" rel="noopener" onclick="trackDownload('ios')" aria-label="Télécharger Obsidian Read dans l'App Store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span><small>Télécharger dans l'</small><strong>App Store</strong></span></a>
+      <a class="badge" href="https://play.google.com/store/apps/details?id=com.obsidianread.app" target="_blank" rel="noopener" onclick="trackDownload('android')" aria-label="Télécharger Obsidian Read sur Google Play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.736-4.061a.99.99 0 010 1.736l-2.732 1.583-2.605-2.605 2.605-2.605 2.732 1.891zM5.232 1.5l10.937 6.333-2.302 2.302L5.232 1.5z"/></svg><span><small>Disponible sur</small><strong>Google Play</strong></span></a>
     </div>
   </div>
 </section>
@@ -184,27 +179,6 @@ src="https://www.facebook.com/tr?id=988007563929955&ev=PageView&noscript=1"
       const track = document.getElementById(btn.getAttribute('data-carousel'));
       track.scrollBy({ left: track.clientWidth * 0.8 * Number(btn.getAttribute('data-dir')), behavior: 'smooth' });
     });
-  });
-</script>
-<script>
-  const form = document.getElementById('contact-form');
-  const status = document.getElementById('status');
-  const submitBtn = document.getElementById('submit-btn');
-  const successScreen = document.getElementById('success-screen');
-  function showSuccess() { form.hidden = true; successScreen.hidden = false; window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  function resetForm() { form.reset(); form.hidden = false; successScreen.hidden = true; status.hidden = true; }
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true; submitBtn.textContent = 'Envoi en cours…'; status.hidden = true;
-    try {
-      const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-      const data = await response.json();
-      if (data.success) { showSuccess(); }
-      else { status.hidden = false; status.textContent = "Erreur lors de l'envoi. Écris-nous directement à contact@obsidianread.com."; }
-    } catch (err) {
-      status.hidden = false; status.textContent = "Erreur de connexion. Écris-nous directement à contact@obsidianread.com.";
-    }
-    submitBtn.disabled = false; submitBtn.textContent = 'Envoyer';
   });
 </script>
 </body>

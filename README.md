@@ -1,38 +1,37 @@
 # obsidianread.com — site officiel
 
-Site statique pour héberger les **CGU** + **Politique de confidentialité** + une page d'accueil minimale.
+Site statique (HTML/CSS, sans framework) hébergé sur **GitHub Pages** (auto-déploiement à chaque push sur `main`).
 
-## Contenu
+## Pages
 
-- `index.html` — page d'accueil simple
-- `terms.html` — Conditions générales d'utilisation
-- `privacy.html` — Politique de confidentialité (RGPD)
+| Page | Fichier | Rôle |
+|---|---|---|
+| Accueil | `index.html` | Accroche, catégories, carrousel des romans, deux romans détaillés, envies, confort, abonnement |
+| Les romans | `romans/index.html` | Les 12 romans avec résumé + filtres par catégorie (`#slug` dans l'adresse) |
+| Par envie | `par-envie/index.html` | Chaque envie avec les couvertures qui y répondent |
+| Abonnement | `abonnement/index.html` | Les deux formules + questions fréquentes |
+| Nous écrire | `contact/index.html` | Formulaire (Web3Forms → contact@obsidianread.com) |
+| Légal | `terms/`, `privacy/`, `delete-account/`, `desinscription/`, `reset-password/`, `auth/confirmed/` | Pages autonomes, non générées |
 
-## Déployer
+## Générer les pages
 
-### Option 1 — Vercel (recommandé, drag & drop, gratuit)
+Les cinq pages du haut sont **générées** par `build/build_site.py` à partir de `build/books.json`
+(export de la table `books` de Supabase, statut `published`). Ne pas modifier `index.html`,
+`romans/`, `par-envie/`, `abonnement/`, `contact/` ou `assets/site.css` à la main : modifier le script, puis :
 
-1. Va sur https://vercel.com → connecte-toi avec GitHub
-2. **New Project** → **Import** → choisis ce dossier (ou push-le sur GitHub d'abord)
-3. Vercel détecte un site statique → **Deploy**
-4. Clique **Domains** → ajoute `obsidianread.com`
-5. Vercel te donne 2 enregistrements DNS à configurer chez ton registrar
-6. ✅ En ligne sous 5 minutes avec HTTPS automatique
+```bash
+python3 build/build_site.py
+```
 
-### Option 2 — GitHub Pages (gratuit)
+Pour ajouter un roman : mettre à jour `build/books.json` (voir l'en-tête du script), ajouter ses tropes dans `TROPES`,
+le ranger dans les catégories `CATS`, relancer le script, commit, push.
 
-1. Crée un repo public `obsidianread-com` sur GitHub
-2. Push tous les fichiers
-3. Settings → Pages → Source : `main` branch
-4. Custom domain : `obsidianread.com`
-5. Configure le DNS chez ton registrar (4 A records pour GitHub Pages)
+## Phrases officielles (2026-09-14)
 
-## Mise à jour des contenus
+- Signature (sous le logo) : **« La romance a son application. »**
+- Phrase d'appel (titre d'accueil, fins de page) : **« Choisis ta prochaine romance sur Obsidian Read. Emporte-la partout avec toi. »**
 
-Les pages HTML sont **autonomes** (CSS inline) — modifie le texte, redéploie, c'est en ligne. Aucun impact sur l'app, aucune mise à jour App Store nécessaire.
+## Direction visuelle
 
-## URLs finales
-
-- https://obsidianread.com
-- https://obsidianread.com/terms
-- https://obsidianread.com/privacy
+Noir `#0A0A0A`, or `#C9A961`, crème `#F5F1E8`, pas de rose. Boutons arrondis. Titres Playfair Display gras, texte Inter.
+Aucun chiffre sur le catalogue, aucune accroche inventée : uniquement les résumés et taglines de l'app.
