@@ -39,6 +39,8 @@ TROPES = {
     'la-cible': 'Dark romance · Tueur à gages',
     'une-nouvelle-partition': 'Père veuf · Amour interdit',
     'pour-de-faux': 'Faux couple · Huis clos',
+    'six-ans-de-silence': 'Dark romance · Enemies to lovers',
+    'a-armes-inegales': 'Enemies to lovers · Université',
 }
 # Ordre d'affichage : les deux premiers = cartes détaillées de l'accueil
 ORDER = ['la-case-accompagnee', 'reste', 'sang-et-serment', 'off-limits', 'noublie-pas-mon-prenom',
@@ -48,22 +50,22 @@ ORDER += [s for s in BY if s not in ORDER]  # nouveaux romans à la fin, sans ri
 
 # Catégories populaires : (slug, emoji, libellé, romans)
 CATS = [
-    ('enemies-to-lovers', '⚔️', 'Enemies to lovers', ['a-charge-a-coeur', 'hors-antenne', 'la-cible', 'sang-et-serment', 'la-case-accompagnee']),
+    ('enemies-to-lovers', '⚔️', 'Enemies to lovers', ['six-ans-de-silence', 'a-armes-inegales', 'a-charge-a-coeur', 'hors-antenne', 'la-cible', 'sang-et-serment', 'la-case-accompagnee']),
     ('faux-couple', '💍', 'Faux couple', ['la-case-accompagnee', 'pour-de-faux']),
     ('amour-interdit', '🚫', 'Amour interdit', ['off-limits', 'a-charge-a-coeur', 'une-nouvelle-partition']),
-    ('slow-burn', '🔥', 'Slow burn', ['reste', 'off-limits', 'pour-de-faux', 'noublie-pas-mon-prenom', 'une-nouvelle-partition', 'la-cible', 'hors-antenne', 'a-charge-a-coeur', 'sous-le-masque', 'le-colosse-et-l-etoile']),
+    ('slow-burn', '🔥', 'Slow burn', ['six-ans-de-silence', 'a-armes-inegales', 'reste', 'off-limits', 'pour-de-faux', 'noublie-pas-mon-prenom', 'une-nouvelle-partition', 'la-cible', 'hors-antenne', 'a-charge-a-coeur', 'sous-le-masque', 'le-colosse-et-l-etoile']),
     ('huis-clos', '🚪', 'Huis clos', ['reste', 'noublie-pas-mon-prenom', 'hors-antenne', 'la-cible', 'pour-de-faux']),
-    ('milliardaires', '💰', 'Romances de milliardaires', ['noublie-pas-mon-prenom', 'une-nouvelle-partition']),
+    ('milliardaires', '💰', 'Romances de milliardaires', ['a-armes-inegales', 'noublie-pas-mon-prenom', 'une-nouvelle-partition']),
     ('prof-etudiante', '🎓', 'Prof et étudiante', ['a-charge-a-coeur']),
     ('hockey', '🏒', 'Hockey', ['off-limits', 'hors-antenne']),
     ('football-americain', '🏈', 'Football américain', ['le-colosse-et-l-etoile']),
-    ('dark-romance', '🖤', 'Dark romance', ['sang-et-serment', 'la-cible']),
-    ('mafia', '🕴️', 'Mafia', ['sang-et-serment', 'la-cible']),
+    ('dark-romance', '🖤', 'Dark romance', ['six-ans-de-silence', 'sang-et-serment', 'la-cible']),
+    ('mafia', '🕴️', 'Mafia', ['six-ans-de-silence', 'sang-et-serment', 'la-cible']),
     ('garde-du-corps', '🛡️', 'Garde du corps', ['sous-le-masque']),
     ('mariage-arrange', '💒', 'Mariage arrangé', ['sang-et-serment']),
     ('pere-celibataire', '👨‍👧', 'Père célibataire', ['une-nouvelle-partition']),
     ('ecart-d-age', '⏳', "Écart d'âge", ['a-charge-a-coeur', 'une-nouvelle-partition']),
-    ('hommes-alpha', '💪', 'Les hommes alpha', ['la-case-accompagnee', 'le-colosse-et-l-etoile', 'off-limits', 'a-charge-a-coeur', 'sous-le-masque']),
+    ('hommes-alpha', '💪', 'Les hommes alpha', ['six-ans-de-silence', 'a-armes-inegales', 'la-case-accompagnee', 'le-colosse-et-l-etoile', 'off-limits', 'a-charge-a-coeur', 'sous-le-masque']),
     ('seconde-chance', '🔁', 'Seconde chance', ['sous-le-masque', 'une-nouvelle-partition']),
     ('grumpy-sunshine', '☀️', 'Grumpy × Sunshine', ['reste']),
 ]
