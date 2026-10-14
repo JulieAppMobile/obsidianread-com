@@ -42,11 +42,10 @@ TROPES = {
     'six-ans-de-silence': 'Dark romance · Enemies to lovers',
     'a-armes-inegales': 'Enemies to lovers · Université',
 }
-# Ordre d'affichage : les deux premiers = cartes détaillées de l'accueil
-ORDER = ['la-case-accompagnee', 'reste', 'sang-et-serment', 'off-limits', 'noublie-pas-mon-prenom',
-         'le-colosse-et-l-etoile', 'a-charge-a-coeur', 'sous-le-masque', 'hors-antenne', 'la-cible',
-         'une-nouvelle-partition', 'pour-de-faux']
-ORDER += [s for s in BY if s not in ORDER]  # nouveaux romans à la fin, sans rien casser
+# Ordre d'affichage : du plus récent au plus ancien, partout (carrousel, /romans/, par envie).
+# Les deux premiers = cartes détaillées de l'accueil. created_at = date de la 1re publication ;
+# published_at est remis à jour à chaque republication, il ne dit pas l'ordre des sorties.
+ORDER = sorted(BY, key=lambda s: BY[s]['created_at'], reverse=True)
 
 # Catégories populaires : (slug, emoji, libellé, romans)
 CATS = [
@@ -91,7 +90,8 @@ def E(s):
 def tagline(slug):
     t = BY[slug].get('tagline') or ''
     t = re.split(r'\s[—-]\s', t, 1)[-1]
-    return t.replace(' vs ', ' contre ')
+    t = t.replace(' vs ', ' contre ')
+    return t[:1].upper() + t[1:]
 
 
 def trope_label(slug):
@@ -186,7 +186,7 @@ def topbar(active=''):
       {L('Par envie', '/par-envie/')}
       {L('Abonnement', '/abonnement/')}
       {L('Nous écrire', '/contact/')}
-      <a href="#" class="btn btn-nav" onclick="smartDownload();return false;">Télécharger<span class="nav-long"> l'application</span></a>
+      <a href="#" class="btn btn-nav" onclick="smartDownload();return false;">Télécharger<span class="nav-long">&nbsp;l'application</span></a>
     </nav>
   </div>
 </header>
@@ -458,7 +458,7 @@ def page_envie():
         _, em, label, slugs = CAT_BY_SLUG[cslug]
         covers = ''.join(
             f'<a class="mini" href="#" onclick="smartDownload();return false;"><span class="cover"><img src="{E(BY[s]["cover_image_url"])}" alt="" loading="lazy" /></span><span class="mini-title">{E(BY[s]["title"])}</span></a>'
-            for s in slugs)
+            for s in sorted(slugs, key=ORDER.index))
         rows += f'''<div class="envie" id="{cslug}">
       <div class="envie-left">
         <div class="envie-line">{E(line)}</div>

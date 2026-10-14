@@ -25,6 +25,8 @@ python3 build/build_site.py
 
 Pour ajouter un roman : mettre à jour `build/books.json` (voir l'en-tête du script), ajouter ses tropes dans `TROPES`,
 le ranger dans les catégories `CATS`, relancer le script, commit, push.
+Les romans sont rangés automatiquement du plus récent au plus ancien (date de 1re publication, `created_at`) :
+le nouveau passe en premier partout. Procédure complète : skill `agent-publish-histoire`, étape 4 bis.
 
 ## Phrases officielles (2026-09-14)
 
