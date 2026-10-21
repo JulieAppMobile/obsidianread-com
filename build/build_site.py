@@ -27,6 +27,7 @@ PIXEL_ID = '988007563929955'
 
 # Deux tropes affichés sur chaque carte (le « 18+ » est ajouté d'après content_rating)
 TROPES = {
+    'la-fille-du-port': 'Mafia · Enemies to lovers',
     'la-case-accompagnee': 'Faux couple · Enemies to lovers',
     'reste': 'Huis clos · Grumpy × Sunshine',
     'sang-et-serment': 'Dark romance · Mariage arrangé',
@@ -49,17 +50,17 @@ ORDER = sorted(BY, key=lambda s: BY[s]['created_at'], reverse=True)
 
 # Catégories populaires : (slug, emoji, libellé, romans)
 CATS = [
-    ('enemies-to-lovers', '⚔️', 'Enemies to lovers', ['six-ans-de-silence', 'a-armes-inegales', 'a-charge-a-coeur', 'hors-antenne', 'la-cible', 'sang-et-serment', 'la-case-accompagnee']),
+    ('enemies-to-lovers', '⚔️', 'Enemies to lovers', ['la-fille-du-port', 'six-ans-de-silence', 'a-armes-inegales', 'a-charge-a-coeur', 'hors-antenne', 'la-cible', 'sang-et-serment', 'la-case-accompagnee']),
     ('faux-couple', '💍', 'Faux couple', ['la-case-accompagnee', 'pour-de-faux']),
     ('amour-interdit', '🚫', 'Amour interdit', ['off-limits', 'a-charge-a-coeur', 'une-nouvelle-partition']),
-    ('slow-burn', '🔥', 'Slow burn', ['six-ans-de-silence', 'a-armes-inegales', 'reste', 'off-limits', 'pour-de-faux', 'noublie-pas-mon-prenom', 'une-nouvelle-partition', 'la-cible', 'hors-antenne', 'a-charge-a-coeur', 'sous-le-masque', 'le-colosse-et-l-etoile']),
+    ('slow-burn', '🔥', 'Slow burn', ['la-fille-du-port', 'six-ans-de-silence', 'a-armes-inegales', 'reste', 'off-limits', 'pour-de-faux', 'noublie-pas-mon-prenom', 'une-nouvelle-partition', 'la-cible', 'hors-antenne', 'a-charge-a-coeur', 'sous-le-masque', 'le-colosse-et-l-etoile']),
     ('huis-clos', '🚪', 'Huis clos', ['reste', 'noublie-pas-mon-prenom', 'hors-antenne', 'la-cible', 'pour-de-faux']),
     ('milliardaires', '💰', 'Romances de milliardaires', ['a-armes-inegales', 'noublie-pas-mon-prenom', 'une-nouvelle-partition']),
     ('prof-etudiante', '🎓', 'Prof et étudiante', ['a-charge-a-coeur']),
     ('hockey', '🏒', 'Hockey', ['off-limits', 'hors-antenne']),
     ('football-americain', '🏈', 'Football américain', ['le-colosse-et-l-etoile']),
     ('dark-romance', '🖤', 'Dark romance', ['six-ans-de-silence', 'sang-et-serment', 'la-cible']),
-    ('mafia', '🕴️', 'Mafia', ['six-ans-de-silence', 'sang-et-serment', 'la-cible']),
+    ('mafia', '🕴️', 'Mafia', ['la-fille-du-port', 'six-ans-de-silence', 'sang-et-serment', 'la-cible']),
     ('garde-du-corps', '🛡️', 'Garde du corps', ['sous-le-masque']),
     ('mariage-arrange', '💒', 'Mariage arrangé', ['sang-et-serment']),
     ('pere-celibataire', '👨‍👧', 'Père célibataire', ['une-nouvelle-partition']),
