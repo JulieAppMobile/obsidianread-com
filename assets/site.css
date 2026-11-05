@@ -39,11 +39,10 @@ h3{font-size:26px;line-height:1.15}
 .hero .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:24px}
 .hero .muted{color:var(--text2)}
 .hero-wall{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;justify-content:center;gap:14px;pointer-events:none}
-.wall-track{display:flex;width:max-content;animation:wall 160s linear infinite}
-.wall-row:nth-child(even) .wall-track{animation-direction:reverse}
+.wall-track{display:flex;width:max-content}
+.wall-row:nth-child(even) .wall-track{margin-left:-77px}
 .wall-track img{flex:none;width:140px;margin-right:14px;aspect-ratio:9/16;object-fit:cover;border-radius:10px}
-@keyframes wall{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.wall-track{animation:none}}
+.hero .btn-ghost:not(:hover){background:#0A0A0A}
 .hero h1{max-width:980px}
 .hero-lede{font-family:'Playfair Display',Georgia,serif;font-size:clamp(18px,1.6vw,22px);line-height:1.5;color:var(--gold2);max-width:720px;margin-top:-4px}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px}
@@ -192,7 +191,7 @@ h3{font-size:26px;line-height:1.15}
   .topbar .row{height:60px}.brand{font-size:18px;gap:10px}.brand img{width:30px;height:30px}
   .hero-lede{font-size:17px}
   .hero{padding:64px 0 56px}.hero .wrap{gap:18px}
-  .hero-wall{gap:10px}.wall-track img{width:96px;margin-right:10px}
+  .hero-wall{gap:10px}.wall-track img{width:96px;margin-right:10px}.wall-row:nth-child(even) .wall-track{margin-left:-53px}
   .hero-btns{flex-direction:column;align-self:stretch}.hero-btns .btn{width:100%}
   .cats-head h2{font-size:24px}
   .chip{height:42px;padding:0 15px;font-size:14px;gap:7px}

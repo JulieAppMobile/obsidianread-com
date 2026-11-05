@@ -150,7 +150,7 @@ def head(title, description, path, extra=''):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=3" />
+<link rel="stylesheet" href="/assets/site.css?v=4" />
 {extra}
 <meta name="facebook-domain-verification" content="xnh7aa6yw7c30az1rn6q7ctvkrt1t9" />
 <!-- Meta Pixel Code -->
@@ -328,13 +328,14 @@ def chips_all():
 
 
 def hero_wall():
-    # Mur de couvertures qui défile derrière l'accueil (façon Galatea), assombri par .hero::before.
+    # Mur de couvertures fixe derrière l'accueil (façon Galatea), assombri par .hero::before.
+    # Julie, 2026-11-05 : pas de défilement, ça brouille la lecture.
     # Mêmes URL que le carrousel : le navigateur ne les télécharge qu'une fois.
     rows = ''
     for i in range(4):
         slugs = ORDER[i * 4:] + ORDER[:i * 4]  # chaque rangée commence par un autre livre
         imgs = ''.join(f'<img src="{E(BY[s]["cover_image_url"])}" alt="" decoding="async" />' for s in slugs)
-        rows += f'<div class="wall-row"><div class="wall-track">{imgs}{imgs}</div></div>'
+        rows += f'<div class="wall-row"><div class="wall-track">{imgs}</div></div>'
     return f'<div class="hero-wall" aria-hidden="true">{rows}</div>'
 
 
@@ -678,11 +679,10 @@ h3{font-size:26px;line-height:1.15}
 .hero .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:24px}
 .hero .muted{color:var(--text2)}
 .hero-wall{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;justify-content:center;gap:14px;pointer-events:none}
-.wall-track{display:flex;width:max-content;animation:wall 160s linear infinite}
-.wall-row:nth-child(even) .wall-track{animation-direction:reverse}
+.wall-track{display:flex;width:max-content}
+.wall-row:nth-child(even) .wall-track{margin-left:-77px}
 .wall-track img{flex:none;width:140px;margin-right:14px;aspect-ratio:9/16;object-fit:cover;border-radius:10px}
-@keyframes wall{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.wall-track{animation:none}}
+.hero .btn-ghost:not(:hover){background:#0A0A0A}
 .hero h1{max-width:980px}
 .hero-lede{font-family:'Playfair Display',Georgia,serif;font-size:clamp(18px,1.6vw,22px);line-height:1.5;color:var(--gold2);max-width:720px;margin-top:-4px}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px}
@@ -831,7 +831,7 @@ h3{font-size:26px;line-height:1.15}
   .topbar .row{height:60px}.brand{font-size:18px;gap:10px}.brand img{width:30px;height:30px}
   .hero-lede{font-size:17px}
   .hero{padding:64px 0 56px}.hero .wrap{gap:18px}
-  .hero-wall{gap:10px}.wall-track img{width:96px;margin-right:10px}
+  .hero-wall{gap:10px}.wall-track img{width:96px;margin-right:10px}.wall-row:nth-child(even) .wall-track{margin-left:-53px}
   .hero-btns{flex-direction:column;align-self:stretch}.hero-btns .btn{width:100%}
   .cats-head h2{font-size:24px}
   .chip{height:42px;padding:0 15px;font-size:14px;gap:7px}
